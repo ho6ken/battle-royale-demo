@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "0dtgFhBn5Eu7fD09Nrg4JD"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "timer-bar",
+      "rect": [
+        0,
+        8,
+        30,
+        16
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        30,
+        32
+      ],
+      "capInsets": [
+        15,
+        8,
+        15,
+        8
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

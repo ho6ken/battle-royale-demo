@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "b1cyhhhxJGp4B3W2R7GMUI"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "timer-bg",
+      "rect": [
+        0,
+        1,
+        44,
+        30
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        44,
+        32
+      ],
+      "capInsets": [
+        22,
+        15,
+        22,
+        15
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]
