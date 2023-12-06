@@ -2991,6 +2991,13 @@ window.__require = function e(t, n, r) {
         atk: 1,
         def: 0,
         cd: 3
+      },
+      999: {
+        hp: 0,
+        atk: 0,
+        def: 0,
+        cd: 0,
+        dex: 0
       }
     };
     cc._RF.pop();
@@ -3471,7 +3478,7 @@ window.__require = function e(t, n, r) {
         do {
           var tile = this._model.getTile(this.randPos());
           if (tile.group == TileDefine_1.TileGroup.Norm) {
-            tile.type = TileDefine_1.TileType.Stone;
+            tile.type = RandUtil_1.RandUtil.randTypes([ TileDefine_1.TileType.Stone, TileDefine_1.TileType.Rock ]);
             count++;
           }
         } while (count < size);
@@ -3851,9 +3858,7 @@ window.__require = function e(t, n, r) {
       };
       GridDirector.prototype.skill = function(act, tile) {
         var _this = this;
-        var time = .2;
-        this._tween.call(function() {});
-        this._tween.delay(time);
+        var time = 0;
         this._tween.call(function() {
           return _this._host.recycle(tile);
         }, this);
@@ -9178,21 +9183,24 @@ window.__require = function e(t, n, r) {
       });
       Object.defineProperty(TileModel.prototype, "atk", {
         get: function() {
-          return this._data.atk;
+          var _a;
+          return null !== (_a = this._data.atk) && void 0 !== _a ? _a : 0;
         },
         enumerable: false,
         configurable: true
       });
       Object.defineProperty(TileModel.prototype, "def", {
         get: function() {
-          return this._data.def;
+          var _a;
+          return null !== (_a = this._data.def) && void 0 !== _a ? _a : 0;
         },
         enumerable: false,
         configurable: true
       });
       Object.defineProperty(TileModel.prototype, "dex", {
         get: function() {
-          return this._data.dex;
+          var _a;
+          return null !== (_a = this._data.dex) && void 0 !== _a ? _a : 0;
         },
         enumerable: false,
         configurable: true
@@ -9214,10 +9222,12 @@ window.__require = function e(t, n, r) {
         this.crushed = false;
       };
       TileModel.prototype.nextRound = function() {
-        this.cd = (--this.cd).limit(0, this._data.cd);
+        var _a;
+        this.cd = (--this.cd).limit(0, null !== (_a = this._data.cd) && void 0 !== _a ? _a : 0);
       };
       TileModel.prototype.fullHp = function() {
-        this.maxHp = this._data.hp;
+        var _a;
+        this.maxHp = null !== (_a = this._data.hp) && void 0 !== _a ? _a : 0;
         this.currHp = this.maxHp;
         return this.currHp;
       };
@@ -9230,12 +9240,14 @@ window.__require = function e(t, n, r) {
         return this.currHp;
       };
       TileModel.prototype.cooldown = function() {
-        this.cd = this._data.cd;
+        var _a;
+        this.cd = null !== (_a = this._data.cd) && void 0 !== _a ? _a : 0;
         return this.cd;
       };
       TileModel.prototype.addCd = function(value) {
+        var _a;
         void 0 === value && (value = 1);
-        this.cd = (this.cd + value).limit(0, this._data.cd);
+        this.cd = (this.cd + value).limit(0, null !== (_a = this._data.cd) && void 0 !== _a ? _a : 0);
         return this.cd;
       };
       return TileModel;
@@ -9918,6 +9930,35 @@ window.__require = function e(t, n, r) {
       TileView.prototype.decHp = function(value) {
         this._model.decHp(value);
         this.refreshBar();
+        this.refreshBlock();
+      };
+      TileView.prototype.refreshBlock = function() {
+        return __awaiter(this, void 0, Promise, function() {
+          var hp, url, _a, _b;
+          return __generator(this, function(_c) {
+            switch (_c.label) {
+             case 0:
+              if (!(this._model.group == TileDefine_1.TileGroup.Block)) return [ 3, 3 ];
+              hp = this._model.currHp;
+              url = 1 == hp ? TextureCfg_1.TextureSrc.Stone : 2 == hp ? TextureCfg_1.TextureSrc.Rock : null;
+              _a = url;
+              if (!_a) return [ 3, 2 ];
+              _b = this.avatar;
+              return [ 4, AssetMgr_1.AssetMgr.inst().loadAsset(url, cc.SpriteFrame, true) ];
+
+             case 1:
+              _a = _b.spriteFrame = _c.sent();
+              _c.label = 2;
+
+             case 2:
+              _a;
+              _c.label = 3;
+
+             case 3:
+              return [ 2 ];
+            }
+          });
+        });
       };
       TileView.prototype.nextRound = function() {
         this._model.nextRound();
