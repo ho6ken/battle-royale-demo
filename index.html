@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Cocos Creator | match-rpg</title>
+  <title>Mermaid</title>
 
   <!--http://www.html5rocks.com/en/mobile/mobifying/-->
   <meta name="viewport"
-        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+        content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,minimal-ui=true"/>
 
   <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,30 +27,37 @@
   <meta name="360-fullscreen" content="true"/>
   
   <!-- force screen orientation on some browser -->
-  <meta name="screen-orientation" content=""/>
-  <meta name="x5-orientation" content="">
+  <meta name="screen-orientation" content="auto"/>
+  <meta name="x5-orientation" content="auto">
 
   <!--fix fireball/issues/3568 -->
   <!--<meta name="browsermode" content="application">-->
   <meta name="x5-page-mode" content="app">
+  <meta name="apple-touch-fullscreen" content="yes">
 
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 
-  <link rel="stylesheet" type="text/css" href="style-mobile.25fc5.css"/>
-  <link rel="icon" href="favicon.8de18.ico"/>
+  <link rel="stylesheet" type="text/css" href="style-mobile.7304e.css"/>
+  <link rel="icon" href="favicon.b89ec.ico"/>
 </head>
 <body>
   <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
   <div id="splash">
+    <div>
+      <img src="./logo.77dec.png" id="logo"></img>
+    </div>
+    <div>
+      <img src="./loading.71e28.gif" id="loading"></img>
+    </div>
     <div class="progress-bar stripes">
       <span style="width: 0%"></span>
     </div>
   </div>
 
-<script src="src/settings.a48aa.js" charset="utf-8"></script>
-<script src="vconsole.min.bac6b.js"></script>
-<script src="main.0354e.js" charset="utf-8"></script>
+<script src="src/settings.9eef1.js" charset="utf-8"></script>
+
+<script src="main.25216.js" charset="utf-8"></script>
 
 <script type="text/javascript">
 (function () {
