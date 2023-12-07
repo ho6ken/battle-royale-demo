@@ -1,7 +1,7 @@
 [
   1,
   [
-    "0dtgFhBn5Eu7fD09Nrg4JD"
+    "ccJcGV09ZMkL/Qftt8BOkz"
   ],
   [
     "_textureSetter"
@@ -12,26 +12,26 @@
   0,
   [
     {
-      "name": "timer-bar",
+      "name": "grid",
       "rect": [
         0,
-        8,
-        30,
-        16
+        0,
+        672,
+        864
       ],
       "offset": [
         0,
         0
       ],
       "originalSize": [
-        30,
-        32
+        672,
+        864
       ],
       "capInsets": [
-        15,
-        8,
-        15,
-        8
+        0,
+        0,
+        0,
+        0
       ]
     }
   ],

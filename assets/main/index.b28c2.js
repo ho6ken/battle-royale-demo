@@ -3788,7 +3788,7 @@ window.__require = function e(t, n, r) {
         var y = (act.target.y + .5) * TileDefine_1.TILE_H;
         if (time <= 0) tile.node.setPosition(x, y); else {
           this._tween.call(function() {
-            return tile.node.zIndex = 1;
+            return tile.node.zIndex = TileDefine_1.TileGroup.None;
           });
           this._tween.to(time, {
             position: cc.v3(x, y, 0)
@@ -3796,7 +3796,7 @@ window.__require = function e(t, n, r) {
             easing: cc.easing.quadIn
           });
           this._tween.call(function() {
-            return tile.node.zIndex = 0;
+            return tile.node.zIndex = tile.group;
           });
         }
         return time;
@@ -9863,6 +9863,13 @@ window.__require = function e(t, n, r) {
         enumerable: false,
         configurable: true
       });
+      Object.defineProperty(TileView.prototype, "group", {
+        get: function() {
+          return this._model.group;
+        },
+        enumerable: false,
+        configurable: true
+      });
       TileView.prototype.onDestroy = function() {
         this._model = null;
       };
@@ -9902,6 +9909,7 @@ window.__require = function e(t, n, r) {
 
              case 1:
               _a.spriteFrame = _b.sent();
+              this.node.zIndex = this.group;
               _b.label = 2;
 
              case 2:

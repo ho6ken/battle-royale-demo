@@ -22,9 +22,7 @@
         "edGkjVYXJAL5U4qdfrxXFA",
         "ed0hW5J5ZKBar1gflskoHO",
         "f0BIwQ8D5Ml7nTNQbh1YlS",
-        "fcLjwTLrhIy5oJiWB5xwpf",
-        "ffDpHHVcZAhqOfy25Fe4w7",
-        "ffwO9ENF1BtaJ0RTspdDvW"
+        "ffDpHHVcZAhqOfy25Fe4w7"
     ],
     "scenes": {
         "db://assets/scene/Main.fire": "0cwFcwzeJPjr++94d8vk6e"
@@ -55,10 +53,6 @@
         "ecpdLyjvZBwrvm+cedCcQy",
         1,
         "edGkjVYXJAL5U4qdfrxXFA",
-        0,
-        "fcLjwTLrhIy5oJiWB5xwpf",
-        0,
-        "ffwO9ENF1BtaJ0RTspdDvW",
         0
     ],
     "deps": [
@@ -89,7 +83,7 @@
     "versions": {
         "import": [
             "03679ff86",
-            "3713d",
+            "f1d0b",
             "037822e4a",
             "56856"
         ],
