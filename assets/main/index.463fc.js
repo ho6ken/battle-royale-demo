@@ -3037,6 +3037,9 @@ window.__require = function e(t, n, r) {
     var AudioCfg_1 = require("../cfg/AudioCfg");
     var AssetMgr_1 = require("../comm/asset/AssetMgr");
     var BgmAudio_1 = require("../comm/audio/BgmAudio");
+    var SfxAudio_1 = require("../comm/audio/SfxAudio");
+    var EventMgr_1 = require("../comm/event/EventMgr");
+    var CmptPool_1 = require("../comm/pool/CmptPool");
     var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
     var GameMgr = function(_super) {
       __extends(GameMgr, _super);
@@ -3051,6 +3054,13 @@ window.__require = function e(t, n, r) {
         mgr.enabled = true;
         mgr.enabledDebugDraw = false;
       };
+      GameMgr.prototype.onDestroy = function() {
+        SfxAudio_1.SfxAudio.destroy();
+        BgmAudio_1.BgmAudio.destroy();
+        EventMgr_1.EventMgr.destroy();
+        CmptPool_1.CmptPool.destroy();
+        AssetMgr_1.AssetMgr.destroy();
+      };
       GameMgr.prototype.start = function() {
         AssetMgr_1.AssetMgr.inst().loadAsset(AudioCfg_1.AudioSrc.LoopBgm, cc.AudioClip, true).then(function(audio) {
           BgmAudio_1.BgmAudio.inst().play(audio);
@@ -3064,7 +3074,10 @@ window.__require = function e(t, n, r) {
   }, {
     "../cfg/AudioCfg": "AudioCfg",
     "../comm/asset/AssetMgr": "AssetMgr",
-    "../comm/audio/BgmAudio": "BgmAudio"
+    "../comm/audio/BgmAudio": "BgmAudio",
+    "../comm/audio/SfxAudio": "SfxAudio",
+    "../comm/event/EventMgr": "EventMgr",
+    "../comm/pool/CmptPool": "CmptPool"
   } ],
   GridCmd: [ function(require, module, exports) {
     "use strict";
@@ -3816,7 +3829,8 @@ window.__require = function e(t, n, r) {
         var time = .2;
         var half = time / 2;
         this._tween.call(function() {
-          return tile.node.scale = 1;
+          tile.node.scale = 1;
+          tile.hit();
         });
         this._tween.to(half, {
           scale: .8
@@ -9962,6 +9976,16 @@ window.__require = function e(t, n, r) {
       };
       TileView.prototype.nextRound = function() {
         this._model.nextRound();
+      };
+      TileView.prototype.hit = function() {
+        var tween = cc.tween(this.avatar.node);
+        tween.to(.1, {
+          color: cc.Color.RED
+        });
+        tween.to(.1, {
+          color: cc.Color.WHITE
+        });
+        tween.start();
       };
       __decorate([ property(cc.Sprite) ], TileView.prototype, "avatar", void 0);
       __decorate([ property(cc.Label) ], TileView.prototype, "info", void 0);
