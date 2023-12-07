@@ -1393,6 +1393,7 @@ window.__require = function e(t, n, r) {
     exports.DebugPnl = void 0;
     var EventCfg_1 = require("../cfg/EventCfg");
     var EventMgr_1 = require("../comm/event/EventMgr");
+    var GameDefine_1 = require("../define/GameDefine");
     var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
     var DebugPnl = function(_super) {
       __extends(DebugPnl, _super);
@@ -1412,6 +1413,9 @@ window.__require = function e(t, n, r) {
           y: y
         }, type);
       };
+      DebugPnl.prototype.onBtn2Click = function(event, data) {
+        EventMgr_1.EventMgr.inst().emit(EventCfg_1.EventSrc.Charge, GameDefine_1.MAX_ENERGY);
+      };
       __decorate([ property(cc.EditBox) ], DebugPnl.prototype, "edit1", void 0);
       __decorate([ property(cc.EditBox) ], DebugPnl.prototype, "edit2", void 0);
       __decorate([ property(cc.EditBox) ], DebugPnl.prototype, "edit3", void 0);
@@ -1422,7 +1426,8 @@ window.__require = function e(t, n, r) {
     cc._RF.pop();
   }, {
     "../cfg/EventCfg": "EventCfg",
-    "../comm/event/EventMgr": "EventMgr"
+    "../comm/event/EventMgr": "EventMgr",
+    "../define/GameDefine": "GameDefine"
   } ],
   DebugTool: [ function(require, module, exports) {
     "use strict";
@@ -1920,12 +1925,12 @@ window.__require = function e(t, n, r) {
           damage = damage.limit(1, atker.atk);
           defer.decHp(damage);
           this._cmd.add(defer, new TileHit_1.TileHit(damage));
-          cc.log(atker.id + "\u666e\u653b" + defer.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + defer.hp, atker.pos, atker.type, defer.pos, defer.type);
+          cc.log(atker.id + "\u666e\u653b" + defer.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + defer.currHp, atker.pos, atker.type, defer.pos, defer.type);
           this.dead(defer);
         }
       };
       EnemyAtk.prototype.dead = function(defer) {
-        if (defer.hp <= 0) {
+        if (defer.currHp <= 0) {
           this._cmd.add(defer, new TileDie_1.TileDie());
           this._param.model.setTile(defer.pos, null);
           cc.log(defer.id + "\u6b7b\u4ea1", defer.pos);
@@ -2394,6 +2399,8 @@ window.__require = function e(t, n, r) {
       EventSrc[EventSrc["Blur"] = 2] = "Blur";
       EventSrc[EventSrc["Scale"] = 3] = "Scale";
       EventSrc[EventSrc["DebugType"] = 4] = "DebugType";
+      EventSrc[EventSrc["Charge"] = 5] = "Charge";
+      EventSrc[EventSrc["Ultimate"] = 6] = "Ultimate";
     })(EventSrc = exports.EventSrc || (exports.EventSrc = {}));
     cc._RF.pop();
   }, {} ],
@@ -2908,7 +2915,7 @@ window.__require = function e(t, n, r) {
     Object.defineProperty(exports, "__esModule", {
       value: true
     });
-    exports.ROLE_TABLE = exports.MAX_STAGE = exports.START_STAGE = exports.STAGE_RULE = exports.PLAYER_START = void 0;
+    exports.ULT_DAMAGE = exports.MAX_ENERGY = exports.ROLE_TABLE = exports.MAX_STAGE = exports.START_STAGE = exports.STAGE_RULE = exports.PLAYER_START = void 0;
     exports.PLAYER_START = {
       x: 3,
       y: 7
@@ -2936,16 +2943,20 @@ window.__require = function e(t, n, r) {
     exports.MAX_STAGE = Object.keys(exports.STAGE_RULE).length;
     exports.ROLE_TABLE = {
       0: {
-        atk: 30
+        atk: 30,
+        energy: 1
       },
       1: {
-        atk: 30
+        atk: 30,
+        energy: 1
       },
       2: {
-        atk: 30
+        atk: 30,
+        energy: 1
       },
       3: {
-        atk: 30
+        atk: 30,
+        energy: 1
       },
       100: {
         hp: 1
@@ -2970,21 +2981,24 @@ window.__require = function e(t, n, r) {
         atk: 10,
         def: 5,
         cd: 1,
-        dex: 2
+        dex: 2,
+        energy: 10
       },
       401: {
         hp: 90,
         atk: 5,
         def: 0,
         cd: 2,
-        dex: 3
+        dex: 3,
+        energy: 10
       },
       402: {
         hp: 120,
         atk: 30,
         def: 25,
         cd: 3,
-        dex: 1
+        dex: 1,
+        energy: 10
       },
       500: {
         hp: 300,
@@ -3000,6 +3014,8 @@ window.__require = function e(t, n, r) {
         dex: 0
       }
     };
+    exports.MAX_ENERGY = 200;
+    exports.ULT_DAMAGE = 50;
     cc._RF.pop();
   }, {} ],
   GameMgr: [ function(require, module, exports) {
@@ -3565,6 +3581,25 @@ window.__require = function e(t, n, r) {
           });
         });
       };
+      GridCtrl.prototype.ultimate = function() {
+        return __awaiter(this, void 0, Promise, function() {
+          var _a;
+          return __generator(this, function(_b) {
+            switch (_b.label) {
+             case 0:
+              _a = this.play;
+              return [ 4, SelectHandler_1.SelectHandler.inst().executeUlt(this._model) ];
+
+             case 1:
+              return [ 4, _a.apply(this, [ _b.sent() ]) ];
+
+             case 2:
+              _b.sent();
+              return [ 2 ];
+            }
+          });
+        });
+      };
       GridCtrl.prototype.onDebugType = function(pos, type) {
         var tile = this._model.getTile(pos);
         if (tile) {
@@ -3575,6 +3610,7 @@ window.__require = function e(t, n, r) {
       };
       var GridCtrl_1;
       GridCtrl._inst = null;
+      __decorate([ EventDecor_1.onEvent(EventCfg_1.EventSrc.Ultimate) ], GridCtrl.prototype, "ultimate", null);
       __decorate([ EventDecor_1.onEvent(EventCfg_1.EventSrc.DebugType) ], GridCtrl.prototype, "onDebugType", null);
       GridCtrl = GridCtrl_1 = __decorate([ ccclass, EventDecor_1.onEnable() ], GridCtrl);
       return GridCtrl;
@@ -3755,7 +3791,9 @@ window.__require = function e(t, n, r) {
           scale: 0
         });
         this._tween.call(function() {
-          return _this._host.recycle(tile);
+          return tile.die().then(function() {
+            return _this._host.recycle(tile);
+          });
         }, this);
         return time;
       };
@@ -3853,7 +3891,9 @@ window.__require = function e(t, n, r) {
           scale: 0
         });
         this._tween.call(function() {
-          return _this._host.recycle(tile);
+          return tile.die().then(function() {
+            return _this._host.recycle(tile);
+          });
         }, this);
         return time;
       };
@@ -4140,6 +4180,9 @@ window.__require = function e(t, n, r) {
         var tile = _super.prototype.getTile.call(this, pos);
         tile && (tile.manage = this.addManage.bind(this));
         return tile;
+      };
+      GridModel.prototype.getRandType = function() {
+        return _super.prototype.getRandType.call(this);
       };
       GridModel.prototype.getEnemies = function() {
         var _this = this;
@@ -5348,12 +5391,12 @@ window.__require = function e(t, n, r) {
           damage = damage.limit(1, atker.atk);
           defer.decHp(damage);
           this._cmd.add(defer, new TileHit_1.TileHit(damage));
-          cc.log(atker.id + "\u666e\u653b" + defer.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + defer.hp, atker.pos, atker.type, defer.pos, defer.type);
+          cc.log(atker.id + "\u666e\u653b" + defer.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + defer.currHp, atker.pos, atker.type, defer.pos, defer.type);
           this.dead(defer);
         }
       };
       NormAtk.prototype.dead = function(defer) {
-        if (defer.hp <= 0) {
+        if (defer.currHp <= 0) {
           this._cmd.add(defer, new TileDie_1.TileDie());
           this._param.model.setTile(defer.pos, null);
           cc.log(defer.id + "\u6b7b\u4ea1", defer.pos);
@@ -6760,6 +6803,7 @@ window.__require = function e(t, n, r) {
     var MoveCheck_1 = require("./check/MoveCheck");
     var ResetWork_1 = require("./base/ResetWork");
     var SkillPort_1 = require("./port/SkillPort");
+    var UltAtk_1 = require("./battle/UltAtk");
     var SelectHandler = function(_super) {
       __extends(SelectHandler, _super);
       function SelectHandler() {
@@ -6767,6 +6811,7 @@ window.__require = function e(t, n, r) {
         _this._from = null;
         _this._check = null;
         _this._port = null;
+        _this._ultimate = null;
         _this._check = new LimitCheck_1.LimitCheck();
         _this._check.push(new FirstCheck_1.FirstCheck());
         _this._check.push(new SecondCheck_1.SecondCheck());
@@ -6777,6 +6822,9 @@ window.__require = function e(t, n, r) {
         _this._port.push(new NormPort_1.NormPort());
         _this._port.push(new PlayerPort_1.PlayerPort());
         _this._port.push(new EnemyPort_1.EnemyPort());
+        _this._ultimate = new ResetWork_1.ResetWork();
+        _this._ultimate.push(new UltAtk_1.UltAtk());
+        _this._ultimate.push(new NormPort_1.NormPort());
         return _this;
       }
       Object.defineProperty(SelectHandler.prototype, "selected", {
@@ -6833,6 +6881,32 @@ window.__require = function e(t, n, r) {
           });
         });
       };
+      SelectHandler.prototype.executeUlt = function(model) {
+        return __awaiter(this, void 0, Promise, function() {
+          var load;
+          return __generator(this, function(_a) {
+            switch (_a.label) {
+             case 0:
+              load = [];
+              return [ 4, this._ultimate.execute({
+                model: model,
+                load: load,
+                first: null,
+                second: null
+              }) ];
+
+             case 1:
+              _a.sent();
+              this._from = null;
+              return [ 4, this.nextRound(model, load) ];
+
+             case 2:
+              _a.sent();
+              return [ 2, load ];
+            }
+          });
+        });
+      };
       SelectHandler.prototype.nextRound = function(model, load) {
         return __awaiter(this, void 0, Promise, function() {
           var cmd;
@@ -6862,6 +6936,7 @@ window.__require = function e(t, n, r) {
     "../act/TileNext": "TileNext",
     "../mvc/GridCmd": "GridCmd",
     "./base/ResetWork": "ResetWork",
+    "./battle/UltAtk": "UltAtk",
     "./check/FirstCheck": "FirstCheck",
     "./check/LimitCheck": "LimitCheck",
     "./check/MoveCheck": "MoveCheck",
@@ -7342,12 +7417,12 @@ window.__require = function e(t, n, r) {
           }
           defer.decHp(damage);
           this._cmd.add(defer, new TileHit_1.TileHit(damage));
-          cc.log(atker.id + "\u7279\u653b" + defer.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + defer.hp, atker.pos, atker.type, defer.pos, defer.type);
+          cc.log(atker.id + "\u7279\u653b" + defer.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + defer.currHp, atker.pos, atker.type, defer.pos, defer.type);
           this.dead(defer);
         }
       };
       SkillAtk.prototype.dead = function(defer) {
-        if (defer.hp <= 0) {
+        if (defer.currHp <= 0) {
           this._cmd.add(defer, new TileDie_1.TileDie());
           this._param.model.setTile(defer.pos, null);
           cc.log(defer.id + "\u6b7b\u4ea1", defer.pos);
@@ -9219,6 +9294,14 @@ window.__require = function e(t, n, r) {
         enumerable: false,
         configurable: true
       });
+      Object.defineProperty(TileModel.prototype, "energy", {
+        get: function() {
+          var _a;
+          return null !== (_a = this._data.energy) && void 0 !== _a ? _a : 0;
+        },
+        enumerable: false,
+        configurable: true
+      });
       TileModel.prototype.clear = function() {
         this.crushed = false;
         this._trans = TileDefine_1.TileType.None;
@@ -9841,8 +9924,10 @@ window.__require = function e(t, n, r) {
       value: true
     });
     exports.TileView = void 0;
+    var EventCfg_1 = require("../../../cfg/EventCfg");
     var TextureCfg_1 = require("../../../cfg/TextureCfg");
     var AssetMgr_1 = require("../../../comm/asset/AssetMgr");
+    var EventMgr_1 = require("../../../comm/event/EventMgr");
     var TileDefine_1 = require("../../../define/TileDefine");
     var TileModel_1 = require("../model/TileModel");
     var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -9924,12 +10009,11 @@ window.__require = function e(t, n, r) {
       };
       TileView.prototype.setBar = function() {
         return __awaiter(this, void 0, Promise, function() {
-          var group, url, _a;
+          var url, _a;
           return __generator(this, function(_b) {
             switch (_b.label) {
              case 0:
-              group = this._model.group;
-              url = group == TileDefine_1.TileGroup.Player ? TextureCfg_1.TextureSrc.PlayerHp : group == TileDefine_1.TileGroup.Enemy ? TextureCfg_1.TextureSrc.EnemyHp : null;
+              url = this.group == TileDefine_1.TileGroup.Player ? TextureCfg_1.TextureSrc.PlayerHp : this.group == TileDefine_1.TileGroup.Enemy ? TextureCfg_1.TextureSrc.EnemyHp : null;
               if (!url) return [ 3, 2 ];
               _a = this.bar.barSprite;
               return [ 4, AssetMgr_1.AssetMgr.inst().loadAsset(url, cc.SpriteFrame, true) ];
@@ -9995,6 +10079,14 @@ window.__require = function e(t, n, r) {
         });
         tween.start();
       };
+      TileView.prototype.die = function() {
+        return __awaiter(this, void 0, Promise, function() {
+          return __generator(this, function(_a) {
+            this._model.energy > 0 && EventMgr_1.EventMgr.inst().emit(EventCfg_1.EventSrc.Charge, this._model.energy);
+            return [ 2 ];
+          });
+        });
+      };
       __decorate([ property(cc.Sprite) ], TileView.prototype, "avatar", void 0);
       __decorate([ property(cc.Label) ], TileView.prototype, "info", void 0);
       __decorate([ property(cc.ProgressBar) ], TileView.prototype, "bar", void 0);
@@ -10004,8 +10096,10 @@ window.__require = function e(t, n, r) {
     exports.TileView = TileView;
     cc._RF.pop();
   }, {
+    "../../../cfg/EventCfg": "EventCfg",
     "../../../cfg/TextureCfg": "TextureCfg",
     "../../../comm/asset/AssetMgr": "AssetMgr",
+    "../../../comm/event/EventMgr": "EventMgr",
     "../../../define/TileDefine": "TileDefine",
     "../model/TileModel": "TileModel"
   } ],
@@ -10060,6 +10154,273 @@ window.__require = function e(t, n, r) {
   }, {
     "../../define/TileDefine": "TileDefine",
     "../mvc/GridCmd": "GridCmd"
+  } ],
+  UltAtk: [ function(require, module, exports) {
+    "use strict";
+    cc._RF.push(module, "40202/RgDdJ6oe2meoBti+n", "UltAtk");
+    "use strict";
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || {
+          __proto__: []
+        } instanceof Array && function(d, b) {
+          d.__proto__ = b;
+        } || function(d, b) {
+          for (var p in b) Object.prototype.hasOwnProperty.call(b, p) && (d[p] = b[p]);
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
+    var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+          resolve(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    var __generator = this && this.__generator || function(thisArg, body) {
+      var _ = {
+        label: 0,
+        sent: function() {
+          if (1 & t[0]) throw t[1];
+          return t[1];
+        },
+        trys: [],
+        ops: []
+      }, f, y, t, g;
+      return g = {
+        next: verb(0),
+        throw: verb(1),
+        return: verb(2)
+      }, "function" === typeof Symbol && (g[Symbol.iterator] = function() {
+        return this;
+      }), g;
+      function verb(n) {
+        return function(v) {
+          return step([ n, v ]);
+        };
+      }
+      function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+          if (f = 1, y && (t = 2 & op[0] ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 
+          0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+          (y = 0, t) && (op = [ 2 & op[0], t.value ]);
+          switch (op[0]) {
+           case 0:
+           case 1:
+            t = op;
+            break;
+
+           case 4:
+            _.label++;
+            return {
+              value: op[1],
+              done: false
+            };
+
+           case 5:
+            _.label++;
+            y = op[1];
+            op = [ 0 ];
+            continue;
+
+           case 7:
+            op = _.ops.pop();
+            _.trys.pop();
+            continue;
+
+           default:
+            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (6 === op[0] || 2 === op[0])) {
+              _ = 0;
+              continue;
+            }
+            if (3 === op[0] && (!t || op[1] > t[0] && op[1] < t[3])) {
+              _.label = op[1];
+              break;
+            }
+            if (6 === op[0] && _.label < t[1]) {
+              _.label = t[1];
+              t = op;
+              break;
+            }
+            if (t && _.label < t[2]) {
+              _.label = t[2];
+              _.ops.push(op);
+              break;
+            }
+            t[2] && _.ops.pop();
+            _.trys.pop();
+            continue;
+          }
+          op = body.call(thisArg, _);
+        } catch (e) {
+          op = [ 6, e ];
+          y = 0;
+        } finally {
+          f = t = 0;
+        }
+        if (5 & op[0]) throw op[1];
+        return {
+          value: op[0] ? op[1] : void 0,
+          done: true
+        };
+      }
+    };
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.UltAtk = void 0;
+    var WorkChain_1 = require("../../../comm/util/WorkChain");
+    var GameDefine_1 = require("../../../define/GameDefine");
+    var TileDie_1 = require("../../act/TileDie");
+    var TileHit_1 = require("../../act/TileHit");
+    var GridCmd_1 = require("../../mvc/GridCmd");
+    var UltAtk = function(_super) {
+      __extends(UltAtk, _super);
+      function UltAtk() {
+        return null !== _super && _super.apply(this, arguments) || this;
+      }
+      UltAtk.prototype.business = function(param) {
+        return __awaiter(this, void 0, Promise, function() {
+          var cmd, count;
+          return __generator(this, function(_a) {
+            cmd = new GridCmd_1.GridCmd();
+            count = 0;
+            param.model.enemies.forEach(function(elm) {
+              var damage = (GameDefine_1.ULT_DAMAGE - elm.def).limit(1, GameDefine_1.ULT_DAMAGE);
+              cmd.add(elm, new TileHit_1.TileHit(damage));
+              elm.decHp(damage);
+              cc.log("$\u5927\u62db" + elm.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + elm.currHp, elm.pos, elm.type);
+              if (elm.decHp(damage) <= 0) {
+                elm.currHp <= 0 && cmd.add(elm, new TileDie_1.TileDie());
+                param.model.setTile(elm.pos, null);
+                cc.log(elm.id + "\u6b7b\u4ea1", elm.pos);
+                count++;
+              }
+            });
+            cmd.deed.size > 0 && param.load.push(cmd);
+            return [ 2, true ];
+          });
+        });
+      };
+      return UltAtk;
+    }(WorkChain_1.WorkChain);
+    exports.UltAtk = UltAtk;
+    cc._RF.pop();
+  }, {
+    "../../../comm/util/WorkChain": "WorkChain",
+    "../../../define/GameDefine": "GameDefine",
+    "../../act/TileDie": "TileDie",
+    "../../act/TileHit": "TileHit",
+    "../../mvc/GridCmd": "GridCmd"
+  } ],
+  UltView: [ function(require, module, exports) {
+    "use strict";
+    cc._RF.push(module, "eb877LJj4dLRaakjapoCfve", "UltView");
+    "use strict";
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || {
+          __proto__: []
+        } instanceof Array && function(d, b) {
+          d.__proto__ = b;
+        } || function(d, b) {
+          for (var p in b) Object.prototype.hasOwnProperty.call(b, p) && (d[p] = b[p]);
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
+    var __decorate = this && this.__decorate || function(decorators, target, key, desc) {
+      var c = arguments.length, r = c < 3 ? target : null === desc ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+      if ("object" === typeof Reflect && "function" === typeof Reflect.decorate) r = Reflect.decorate(decorators, target, key, desc); else for (var i = decorators.length - 1; i >= 0; i--) (d = decorators[i]) && (r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r);
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.UltView = void 0;
+    var EventCfg_1 = require("../../../cfg/EventCfg");
+    var EventDecor_1 = require("../../../comm/event/EventDecor");
+    var EventMgr_1 = require("../../../comm/event/EventMgr");
+    var GameDefine_1 = require("../../../define/GameDefine");
+    var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+    var UltView = function(_super) {
+      __extends(UltView, _super);
+      function UltView() {
+        var _this = null !== _super && _super.apply(this, arguments) || this;
+        _this.bar = null;
+        _this.btn = null;
+        _this._energy = 0;
+        return _this;
+      }
+      UltView.prototype.onLoad = function() {
+        this.clear();
+      };
+      UltView.prototype.clear = function() {
+        this._energy = 0;
+        this.bar.progress = 0;
+        this.btn.target.color = cc.Color.GRAY;
+      };
+      UltView.prototype.charge = function(value) {
+        this._energy = (this._energy + value).limit(0, GameDefine_1.MAX_ENERGY);
+        this.bar.progress = this._energy / GameDefine_1.MAX_ENERGY;
+        this._energy >= GameDefine_1.MAX_ENERGY && (this.btn.target.color = cc.Color.WHITE);
+        cc.log("\u5145\u80fd", value, this._energy);
+      };
+      UltView.prototype.onClick = function(event, data) {
+        if (this._energy >= GameDefine_1.MAX_ENERGY) {
+          EventMgr_1.EventMgr.inst().emit(EventCfg_1.EventSrc.Ultimate);
+          this.clear();
+        }
+      };
+      __decorate([ property(cc.ProgressBar) ], UltView.prototype, "bar", void 0);
+      __decorate([ property(cc.Button) ], UltView.prototype, "btn", void 0);
+      __decorate([ EventDecor_1.onEvent(EventCfg_1.EventSrc.Charge) ], UltView.prototype, "charge", null);
+      UltView = __decorate([ ccclass, EventDecor_1.onEnable() ], UltView);
+      return UltView;
+    }(cc.Component);
+    exports.UltView = UltView;
+    cc._RF.pop();
+  }, {
+    "../../../cfg/EventCfg": "EventCfg",
+    "../../../comm/event/EventDecor": "EventDecor",
+    "../../../comm/event/EventMgr": "EventMgr",
+    "../../../define/GameDefine": "GameDefine"
   } ],
   WaitUtil: [ function(require, module, exports) {
     "use strict";
@@ -10490,4 +10851,4 @@ window.__require = function e(t, n, r) {
     exports.WorkChain = WorkChain;
     cc._RF.pop();
   }, {} ]
-}, {}, [ "AudioCfg", "EventCfg", "PrefabCfg", "SpinCfg", "TextureCfg", "AssetLoader", "AssetMgr", "BgmAudio", "SfxAudio", "ReplayFx", "Spine", "CanvasAdapt", "DesktopAdapt", "WidgetAdapt", "EventDecor", "EventMgr", "NumExtend", "StrExtend", "CmptPool", "ObjPool", "DataDriven", "RandUtil", "SimulateFx", "Singleton", "WaitUtil", "WorkChain", "DebugPnl", "DebugTool", "GameDefine", "GridDefine", "TileDefine", "GameMgr", "TileCrush", "TileDie", "TileFall", "TileHit", "TileMove", "TileNext", "TileSelect", "TileSkill", "TileSlip", "TileSpawn", "TileSwap", "TileTrans", "TileWait", "GridCmd", "GridDirector", "GridCtrl", "GridCtrlBase", "StageCtrl", "GridModel", "GridModelBase", "StageModel", "TileModel", "TileModelBase", "GridView", "RuleView", "StageView", "TileView", "SelectHandler", "ComboWork", "CrushWork", "DropWork", "ResetWork", "SlipWork", "StuffWork", "EnemyAtk", "EnemyWalk", "NormAtk", "SkillAtk", "FirstCheck", "LimitCheck", "MoveCheck", "SecondCheck", "SwapCheck", "EnemyPort", "NormPort", "PlayerPort", "SkillPort" ]);
+}, {}, [ "AudioCfg", "EventCfg", "PrefabCfg", "SpinCfg", "TextureCfg", "AssetLoader", "AssetMgr", "BgmAudio", "SfxAudio", "ReplayFx", "Spine", "CanvasAdapt", "DesktopAdapt", "WidgetAdapt", "EventDecor", "EventMgr", "NumExtend", "StrExtend", "CmptPool", "ObjPool", "DataDriven", "RandUtil", "SimulateFx", "Singleton", "WaitUtil", "WorkChain", "DebugPnl", "DebugTool", "GameDefine", "GridDefine", "TileDefine", "GameMgr", "TileCrush", "TileDie", "TileFall", "TileHit", "TileMove", "TileNext", "TileSelect", "TileSkill", "TileSlip", "TileSpawn", "TileSwap", "TileTrans", "TileWait", "GridCmd", "GridDirector", "GridCtrl", "GridCtrlBase", "StageCtrl", "GridModel", "GridModelBase", "StageModel", "TileModel", "TileModelBase", "GridView", "RuleView", "StageView", "TileView", "UltView", "SelectHandler", "ComboWork", "CrushWork", "DropWork", "ResetWork", "SlipWork", "StuffWork", "EnemyAtk", "EnemyWalk", "NormAtk", "SkillAtk", "UltAtk", "FirstCheck", "LimitCheck", "MoveCheck", "SecondCheck", "SwapCheck", "EnemyPort", "NormPort", "PlayerPort", "SkillPort" ]);
