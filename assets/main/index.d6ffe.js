@@ -2943,19 +2943,27 @@ window.__require = function e(t, n, r) {
     exports.MAX_STAGE = Object.keys(exports.STAGE_RULE).length;
     exports.ROLE_TABLE = {
       0: {
+        hp: 1,
         atk: 30,
+        def: 0,
         energy: 1
       },
       1: {
+        hp: 1,
         atk: 30,
+        def: 0,
         energy: 1
       },
       2: {
+        hp: 1,
         atk: 30,
+        def: 0,
         energy: 1
       },
       3: {
+        hp: 1,
         atk: 30,
+        def: 0,
         energy: 1
       },
       100: {
@@ -7370,10 +7378,16 @@ window.__require = function e(t, n, r) {
         });
       };
       SkillAtk.prototype.cross = function(atker) {
-        for (var x = -3; x <= 3; x++) for (var y = -3; y <= 3; y++) this.attack(atker, {
-          x: x,
-          y: y
-        });
+        for (var i = -3; i <= 3; i++) {
+          this.attack(atker, {
+            x: atker.pos.x,
+            y: i
+          });
+          this.attack(atker, {
+            x: i,
+            y: atker.pos.y
+          });
+        }
       };
       SkillAtk.prototype.thunder = function(atker) {
         var ay = RandUtil_1.RandUtil.shuffle(this._param.model.enemies);
@@ -7402,6 +7416,7 @@ window.__require = function e(t, n, r) {
         if (defer) {
           var damage = 0;
           switch (defer.group) {
+           case TileDefine_1.TileGroup.Norm:
            case TileDefine_1.TileGroup.Enemy:
             damage = atker.atk - defer.def;
             damage = damage.limit(1, atker.atk);
