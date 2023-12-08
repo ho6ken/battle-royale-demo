@@ -1416,6 +1416,9 @@ window.__require = function e(t, n, r) {
       DebugPnl.prototype.onBtn2Click = function(event, data) {
         EventMgr_1.EventMgr.inst().emit(EventCfg_1.EventSrc.Charge, GameDefine_1.MAX_ENERGY);
       };
+      DebugPnl.prototype.onBtn3Click = function(event, data) {
+        EventMgr_1.EventMgr.inst().emit(EventCfg_1.EventSrc.DebugCd);
+      };
       __decorate([ property(cc.EditBox) ], DebugPnl.prototype, "edit1", void 0);
       __decorate([ property(cc.EditBox) ], DebugPnl.prototype, "edit2", void 0);
       __decorate([ property(cc.EditBox) ], DebugPnl.prototype, "edit3", void 0);
@@ -2308,8 +2311,8 @@ window.__require = function e(t, n, r) {
           return __generator(this, function(_a) {
             this._param = param;
             param.atkers.forEach(function(atker) {
-              return _this.walk(atker);
-            });
+              return _this.walk(param.model.getTileById(atker.id));
+            }, this);
             return [ 2, true ];
           });
         });
@@ -2399,8 +2402,9 @@ window.__require = function e(t, n, r) {
       EventSrc[EventSrc["Blur"] = 2] = "Blur";
       EventSrc[EventSrc["Scale"] = 3] = "Scale";
       EventSrc[EventSrc["DebugType"] = 4] = "DebugType";
-      EventSrc[EventSrc["Charge"] = 5] = "Charge";
-      EventSrc[EventSrc["Ultimate"] = 6] = "Ultimate";
+      EventSrc[EventSrc["DebugCd"] = 5] = "DebugCd";
+      EventSrc[EventSrc["Charge"] = 6] = "Charge";
+      EventSrc[EventSrc["Ultimate"] = 7] = "Ultimate";
     })(EventSrc = exports.EventSrc || (exports.EventSrc = {}));
     cc._RF.pop();
   }, {} ],
@@ -3616,10 +3620,14 @@ window.__require = function e(t, n, r) {
           this._model.print();
         }
       };
+      GridCtrl.prototype.onDebugCd = function() {
+        this._model.player.cd = 0;
+      };
       var GridCtrl_1;
       GridCtrl._inst = null;
       __decorate([ EventDecor_1.onEvent(EventCfg_1.EventSrc.Ultimate) ], GridCtrl.prototype, "ultimate", null);
       __decorate([ EventDecor_1.onEvent(EventCfg_1.EventSrc.DebugType) ], GridCtrl.prototype, "onDebugType", null);
+      __decorate([ EventDecor_1.onEvent(EventCfg_1.EventSrc.DebugCd) ], GridCtrl.prototype, "onDebugCd", null);
       GridCtrl = GridCtrl_1 = __decorate([ ccclass, EventDecor_1.onEnable() ], GridCtrl);
       return GridCtrl;
     }(GridCtrlBase_1.GridCtrlBase);
@@ -4170,6 +4178,7 @@ window.__require = function e(t, n, r) {
       __extends(GridModel, _super);
       function GridModel() {
         var _this = null !== _super && _super.apply(this, arguments) || this;
+        _this._cache = null;
         _this.player = null;
         _this._enemies = new Map();
         return _this;
@@ -4182,13 +4191,27 @@ window.__require = function e(t, n, r) {
         configurable: true
       });
       GridModel.prototype.setTile = function(pos, tile) {
+        var _a;
         _super.prototype.setTile.call(this, pos, tile);
-        tile && (tile.manage = this.addManage.bind(this));
+        if (tile) {
+          tile.manage = this.addManage.bind(this);
+          tile.group == TileDefine_1.TileGroup.Player && (this.player = tile);
+          null !== (_a = this._cache) && void 0 !== _a ? _a : this._cache = new Map();
+          this._cache.set(tile.id, tile);
+        }
       };
       GridModel.prototype.getTile = function(pos) {
+        var _a;
         var tile = _super.prototype.getTile.call(this, pos);
-        tile && (tile.manage = this.addManage.bind(this));
+        if (tile) {
+          tile.manage = this.addManage.bind(this);
+          null !== (_a = this._cache) && void 0 !== _a ? _a : this._cache = new Map();
+          this._cache.set(tile.id, tile);
+        }
         return tile;
+      };
+      GridModel.prototype.getTileById = function(id) {
+        return this._cache.get(id);
       };
       GridModel.prototype.getRandType = function() {
         return _super.prototype.getRandType.call(this);
