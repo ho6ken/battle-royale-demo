@@ -3912,7 +3912,8 @@ window.__require = function e(t, n, r) {
       };
       GridDirector.prototype.skill = function(act, tile) {
         var _this = this;
-        var time = 0;
+        var time = .1;
+        this._tween.delay(time);
         this._tween.call(function() {
           return _this._host.recycle(tile);
         }, this);
@@ -4585,7 +4586,7 @@ window.__require = function e(t, n, r) {
 
              case 2:
               _b.sent();
-              _a = cmd_1.slack > 0;
+              _a = cmd_1.slack && cmd_1.slack > 0;
               if (!_a) return [ 3, 4 ];
               return [ 4, WaitUtil_1.WaitUtil.waitMs(cmd_1.slack) ];
 
@@ -6858,7 +6859,7 @@ window.__require = function e(t, n, r) {
              case 1:
               succeed = _a.sent();
               this._from = param.from;
-              if (!succeed) return [ 3, 4 ];
+              if (!succeed) return [ 3, 3 ];
               return [ 4, this._port.execute({
                 model: model,
                 load: load,
@@ -6869,13 +6870,10 @@ window.__require = function e(t, n, r) {
              case 2:
               _a.sent();
               this._from = null;
-              return [ 4, this.nextRound(model, load) ];
+              this.nextRound(model, load);
+              _a.label = 3;
 
              case 3:
-              _a.sent();
-              _a.label = 4;
-
-             case 4:
               return [ 2, load ];
             }
           });
@@ -6898,10 +6896,7 @@ window.__require = function e(t, n, r) {
              case 1:
               _a.sent();
               this._from = null;
-              return [ 4, this.nextRound(model, load) ];
-
-             case 2:
-              _a.sent();
+              this.nextRound(model, load);
               return [ 2, load ];
             }
           });
@@ -7415,10 +7410,12 @@ window.__require = function e(t, n, r) {
            case TileDefine_1.TileGroup.Block:
             damage = 1;
           }
-          defer.decHp(damage);
-          this._cmd.add(defer, new TileHit_1.TileHit(damage));
-          cc.log(atker.id + "\u7279\u653b" + defer.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + defer.currHp, atker.pos, atker.type, defer.pos, defer.type);
-          this.dead(defer);
+          if (damage > 0 && defer.id >= 0) {
+            defer.decHp(damage);
+            this._cmd.add(defer, new TileHit_1.TileHit(damage));
+            cc.log(atker.id + "\u7279\u653b" + defer.id + ", \u50b7\u5bb3" + damage + ", \u5269\u8840" + defer.currHp, atker.pos, atker.type, defer.pos, defer.type);
+            this.dead(defer);
+          }
         }
       };
       SkillAtk.prototype.dead = function(defer) {
@@ -10315,6 +10312,7 @@ window.__require = function e(t, n, r) {
             cmd = new GridCmd_1.GridCmd();
             count = 0;
             param.model.enemies.forEach(function(elm) {
+              if (elm.id < 0 || param.model.getTile(elm.pos).id != elm.id) return;
               var damage = (GameDefine_1.ULT_DAMAGE - elm.def).limit(1, GameDefine_1.ULT_DAMAGE);
               cmd.add(elm, new TileHit_1.TileHit(damage));
               elm.decHp(damage);
