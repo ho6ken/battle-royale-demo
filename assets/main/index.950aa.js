@@ -3016,7 +3016,7 @@ window.__require = function e(t, n, r) {
         hp: 300,
         atk: 1,
         def: 0,
-        cd: 3
+        cd: 2
       },
       999: {
         hp: 0,
