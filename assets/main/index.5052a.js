@@ -7403,12 +7403,12 @@ window.__require = function e(t, n, r) {
       SkillAtk.prototype.cross = function(atker) {
         for (var i = -3; i <= 3; i++) {
           this.attack(atker, {
-            x: atker.pos.x,
+            x: 0,
             y: i
           });
           this.attack(atker, {
             x: i,
-            y: atker.pos.y
+            y: 0
           });
         }
       };
