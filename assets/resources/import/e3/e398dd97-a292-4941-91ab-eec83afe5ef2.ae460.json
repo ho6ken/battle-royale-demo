@@ -1,7 +1,7 @@
 [
   1,
   [
-    "7aPYr3a9pOo51Tv+cUgcbW"
+    "2beZVfdYdEF67jX1N6dAxr"
   ],
   [
     "_textureSetter"
@@ -12,15 +12,15 @@
   0,
   [
     {
-      "name": "warrior",
+      "name": "archer",
       "rect": [
-        0,
-        0,
-        96,
-        96
+        5,
+        1,
+        73,
+        94
       ],
       "offset": [
-        0,
+        -6.5,
         0
       ],
       "originalSize": [

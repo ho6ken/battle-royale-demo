@@ -1148,7 +1148,7 @@ window.__require = function e(t, n, r) {
                 var type_1 = TileDefine_1.TileType.None;
                 places.forEach(function(pos, idx) {
                   var tile = param.model.getTile(pos);
-                  len >= 4 && 0 == idx ? tile.trans = TileDefine_1.TileType.Cross : tile.crushed = true;
+                  0 == idx ? len >= 5 ? tile.trans = TileDefine_1.TileType.Cyclone : len >= 4 ? tile.trans = TileDefine_1.TileType.Cross : tile.crushed = true : tile.crushed = true;
                   log_1.push(tile.id);
                   type_1 = tile.type;
                 });
@@ -1178,7 +1178,7 @@ window.__require = function e(t, n, r) {
                 var type_2 = TileDefine_1.TileType.None;
                 places.forEach(function(pos, idx) {
                   var tile = param.model.getTile(pos);
-                  len >= 4 && 0 == idx ? tile.trans = TileDefine_1.TileType.Cross : tile.crushed = true;
+                  0 == idx ? len >= 5 ? tile.trans = TileDefine_1.TileType.Cyclone : len >= 4 ? tile.trans = TileDefine_1.TileType.Cross : tile.crushed = true : tile.crushed = true;
                   log_2.push(tile.id);
                   type_2 = tile.type;
                 });
@@ -4179,10 +4179,16 @@ window.__require = function e(t, n, r) {
       function GridModel() {
         var _this = null !== _super && _super.apply(this, arguments) || this;
         _this._cache = null;
-        _this.player = null;
         _this._enemies = new Map();
         return _this;
       }
+      Object.defineProperty(GridModel.prototype, "player", {
+        get: function() {
+          return this.getPlayer();
+        },
+        enumerable: false,
+        configurable: true
+      });
       Object.defineProperty(GridModel.prototype, "enemies", {
         get: function() {
           return this.getEnemies();
@@ -4195,7 +4201,6 @@ window.__require = function e(t, n, r) {
         _super.prototype.setTile.call(this, pos, tile);
         if (tile) {
           tile.manage = this.addManage.bind(this);
-          tile.group == TileDefine_1.TileGroup.Player && (this.player = tile);
           null !== (_a = this._cache) && void 0 !== _a ? _a : this._cache = new Map();
           this._cache.set(tile.id, tile);
         }
@@ -4216,46 +4221,19 @@ window.__require = function e(t, n, r) {
       GridModel.prototype.getRandType = function() {
         return _super.prototype.getRandType.call(this);
       };
+      GridModel.prototype.getPlayer = function() {
+        return Array.from(this._cache.values()).filter(function(elm) {
+          return elm.group == TileDefine_1.TileGroup.Player;
+        })[0];
+      };
       GridModel.prototype.getEnemies = function() {
-        var _this = this;
-        var waits = [];
-        this._enemies.forEach(function(enemy, id) {
-          _this.getTile(enemy.pos).id != id && waits.push(id);
-        }, this);
-        waits.forEach(function(id) {
-          return _this._enemies.delete(id);
-        }, this);
-        return Array.from(this._enemies.values());
+        return Array.from(this._cache.values()).filter(function(elm) {
+          return elm.group == TileDefine_1.TileGroup.Enemy;
+        });
       };
-      GridModel.prototype.clearManage = function() {
-        var _this = this;
-        Array.from(this._enemies.values()).forEach(function(enemy) {
-          enemy && _this.removeManage(enemy);
-        }, this);
-        this._enemies.clear();
-        this.player && this.removeManage(this.player);
-      };
-      GridModel.prototype.addManage = function(tile) {
-        switch (tile.group) {
-         case TileDefine_1.TileGroup.Player:
-          this.player = tile;
-          break;
-
-         case TileDefine_1.TileGroup.Enemy:
-          this._enemies.set(tile.id, tile);
-        }
-      };
-      GridModel.prototype.removeManage = function(tile) {
-        switch (tile.group) {
-         case TileDefine_1.TileGroup.Player:
-          this.player = null;
-          break;
-
-         case TileDefine_1.TileGroup.Enemy:
-          this._enemies.delete(tile.id);
-        }
-        tile.manage = null;
-      };
+      GridModel.prototype.clearManage = function() {};
+      GridModel.prototype.addManage = function(tile) {};
+      GridModel.prototype.removeManage = function(tile) {};
       GridModel.prototype.isCrush = function(center) {
         return this.getCrushesH(center).length >= 3 || this.getCrushesV(center).length >= 3 || this.getCrushesO(center).length >= 4 || this.getCrushesT(center).length >= 5 || this.getCrushesL(center).length >= 5;
       };
@@ -4971,10 +4949,6 @@ window.__require = function e(t, n, r) {
       LimitSkill.prototype.business = function(param) {
         return __awaiter(this, void 0, Promise, function() {
           return __generator(this, function(_a) {
-            if (param.to.tile.group == TileDefine_1.TileGroup.Skill && (null == param.from || param.from.tile.group != TileDefine_1.TileGroup.Player)) {
-              param.to = null;
-              return [ 2, false ];
-            }
             return [ 2, true ];
           });
         });
@@ -7424,7 +7398,7 @@ window.__require = function e(t, n, r) {
         }
       };
       SkillAtk.prototype.cyclone = function(atker) {
-        for (var x = -1; x <= 1; x++) for (var y = -1; y <= 1; y++) this.attack(atker, {
+        for (var x = -2; x <= 2; x++) for (var y = -2; y <= 2; y++) this.attack(atker, {
           x: x,
           y: y
         });
@@ -7641,7 +7615,7 @@ window.__require = function e(t, n, r) {
              case 0:
               this.clear(param);
               [ param.first, param.second ].forEach(function(elm) {
-                elm && elm.group == TileDefine_1.TileGroup.Skill && param.atkers.push(elm);
+                param.first.group == TileDefine_1.TileGroup.Player && elm && elm.group == TileDefine_1.TileGroup.Skill && param.atkers.push(elm);
               });
               if (!(param.atkers.length > 0)) return [ 3, 2 ];
               return [ 4, this._process.execute(param) ];
@@ -8826,9 +8800,10 @@ window.__require = function e(t, n, r) {
       }
       SwapCheck.prototype.business = function(param) {
         return __awaiter(this, void 0, Promise, function() {
-          var res;
+          var group, res;
           return __generator(this, function(_a) {
-            if (param.from.tile.group == TileDefine_1.TileGroup.Norm) {
+            group = param.from.tile.group;
+            if (group == TileDefine_1.TileGroup.Norm || group == TileDefine_1.TileGroup.Skill) {
               this.swap(param);
               res = param.model.isCrush(param.from.pos);
               res || (res = param.model.isCrush(param.to.pos));
