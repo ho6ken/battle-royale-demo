@@ -4596,7 +4596,9 @@ window.__require = function e(t, n, r) {
         return time;
       };
       GridDirector.prototype.cooldown = function(act, tile) {
-        tile.doCooldown();
+        this._tween.call(function() {
+          return tile.doCooldown();
+        });
         return 0;
       };
       return GridDirector;
