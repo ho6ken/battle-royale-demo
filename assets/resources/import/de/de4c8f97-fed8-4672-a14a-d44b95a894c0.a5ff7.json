@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "12W9CdG31KwYErXE2YMGXk"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "Particle_14_001_R",
+      "rect": [
+        0,
+        22,
+        503,
+        472
+      ],
+      "offset": [
+        -4.5,
+        -2
+      ],
+      "originalSize": [
+        512,
+        512
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

@@ -1,0 +1,1371 @@
+[
+  1,
+  [
+    "c293/jKyVOCJq4Bp+KmpTL",
+    "f9DDuciKxLqJ4Ho5TDaZZb",
+    "63xqHQ/SdDkrI9UeLQ65OR",
+    "4dyZ03UC5KcpiQaNqssJ8W",
+    "01Aq+rqZxMYbh3UTMqmQSk",
+    "34zYJAs/ZF2opdolFxec0+",
+    "fa6fHZoNJACJkDjwXPDsVH",
+    "65peE0LLBJMKyhhQvTwpeO",
+    "72Ha1yIyJLWqs+NJA8OIsb",
+    "8bAl2AUANI4K5DurydCf1a",
+    "403aLhFBFEu618OJGP4jVE",
+    "20PlXdasZMpKvd9QO6iXWY",
+    "3a47qkmMtE2rmIWDoDQuUD",
+    "9e1nMcJ/BJVpKJmExTtYg6",
+    "8eIZepjlxHmaKX40N82ygT",
+    "d690SPKh1AWLG4xistv3bY",
+    "fbEuXi4ntCZbGrhF/g5mC2",
+    "0eBYs+L8pPUrZcTr+YKDTT",
+    "36UmU+AQFKGY4NJLvlzm3n",
+    "05hVi82RRHbby6e8JURqzm",
+    "c3xKS5S5tP84o3d/xEY4FR",
+    "42WhtsZYpCl5W4tBG1BZrB",
+    "2fpy78KCFM/ZO5O2ghyqep",
+    "ffgqlPhBlJhrf//j/LYqWD",
+    "08ts4yKONPyaZg71Ztn/pd",
+    "56sxg/oKhK5aXWQCsTgZGt",
+    "068ufXOZJLc4ouj29G+KDU",
+    "3aAIVfUEpPk5phibWCrIgD",
+    "23aLADo0JFIoPw8HcMyOm/",
+    "85ELk+qSpFtYD+Df/OCBHW",
+    "8cGkFpEHNDu5m1NN5Lw/yF",
+    "19hgTaLBZNoJK1vaxckNU4",
+    "ecUVgskWlKv7tzPYUffykr",
+    "73EPO0f8hMOaBO3tU5Czh6",
+    "7f95XCcWBG3IaUqbiwvckn",
+    "7aTv1MhnlDILyqh+d5jVJ5",
+    "7eIQyRsYNKJod9uE50gOYs",
+    "2fscDCJipLA5tpWbAiSddZ",
+    "8a8YOd/nZDSYwLTylmpEfO",
+    "c5GWZqDENEIJBBoKFevpye",
+    "8f1ovMMj1BPLeOYjK8hB5b",
+    "90UdSWZTBM0Z1FRtz+NENQ",
+    "03uVA7B4hBOL0ltinNAlGr",
+    "3fpR79F9NAXJyprULWUQtL",
+    "f87neRI1hKlbaxCKtPV4fb",
+    "7eyCBzkrxKZJ/cufaBiqg1",
+    "a9qSWV6vNNfpnr8Hndee/5",
+    "6d+nK69QpFf7427ac91+ex"
+  ],
+  [
+    "_textureSetter",
+    "value"
+  ],
+  [
+    "cc.SpriteFrame",
+    [
+      "cc.AnimationClip",
+      [
+        "_name",
+        "_duration",
+        "sample",
+        "speed",
+        "curveData"
+      ],
+      -1,
+      11
+    ]
+  ],
+  [
+    [
+      1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  [
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_07",
+          "rect": [
+            37,
+            28,
+            133,
+            183
+          ],
+          "offset": [
+            -9.5,
+            -6.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_14",
+          "rect": [
+            35,
+            30,
+            134,
+            184
+          ],
+          "offset": [
+            -11,
+            -9
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_12",
+          "rect": [
+            36,
+            31,
+            132,
+            184
+          ],
+          "offset": [
+            -11,
+            -10
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        2
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_05",
+          "rect": [
+            40,
+            28,
+            131,
+            185
+          ],
+          "offset": [
+            -7.5,
+            -7.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        3
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_19",
+          "rect": [
+            38,
+            28,
+            133,
+            182
+          ],
+          "offset": [
+            -8.5,
+            -6
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        4
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_16",
+          "rect": [
+            35,
+            29,
+            134,
+            183
+          ],
+          "offset": [
+            -11,
+            -7.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        5
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_10",
+          "rect": [
+            35,
+            30,
+            134,
+            184
+          ],
+          "offset": [
+            -11,
+            -9
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        6
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_06",
+          "rect": [
+            39,
+            28,
+            131,
+            184
+          ],
+          "offset": [
+            -8.5,
+            -7
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        7
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_15",
+          "rect": [
+            35,
+            29,
+            134,
+            184
+          ],
+          "offset": [
+            -11,
+            -8
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        8
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_00",
+          "rect": [
+            41,
+            31,
+            132,
+            185
+          ],
+          "offset": [
+            -6,
+            -10.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        9
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_09",
+          "rect": [
+            35,
+            29,
+            134,
+            183
+          ],
+          "offset": [
+            -11,
+            -7.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        10
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_13",
+          "rect": [
+            35,
+            30,
+            133,
+            184
+          ],
+          "offset": [
+            -11.5,
+            -9
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        11
+      ]
+    ],
+    [
+      [
+        [
+          0,
+          "WarriorWalk",
+          24,
+          1,
+          20,
+          [
+            {},
+            "comps",
+            11,
+            [
+              {},
+              "cc.Sprite",
+              11,
+              [
+                {},
+                "spriteFrame",
+                12,
+                [
+                  [
+                    [
+                      {
+                        "frame": 0
+                      },
+                      "value",
+                      6,
+                      0
+                    ],
+                    [
+                      {
+                        "frame": 1
+                      },
+                      "value",
+                      6,
+                      1
+                    ],
+                    [
+                      {
+                        "frame": 2
+                      },
+                      "value",
+                      6,
+                      2
+                    ],
+                    [
+                      {
+                        "frame": 3
+                      },
+                      "value",
+                      6,
+                      3
+                    ],
+                    [
+                      {
+                        "frame": 4
+                      },
+                      "value",
+                      6,
+                      4
+                    ],
+                    [
+                      {
+                        "frame": 5
+                      },
+                      "value",
+                      6,
+                      5
+                    ],
+                    [
+                      {
+                        "frame": 6
+                      },
+                      "value",
+                      6,
+                      6
+                    ],
+                    [
+                      {
+                        "frame": 7
+                      },
+                      "value",
+                      6,
+                      7
+                    ],
+                    [
+                      {
+                        "frame": 8
+                      },
+                      "value",
+                      6,
+                      8
+                    ],
+                    [
+                      {
+                        "frame": 9
+                      },
+                      "value",
+                      6,
+                      9
+                    ],
+                    [
+                      {
+                        "frame": 10
+                      },
+                      "value",
+                      6,
+                      10
+                    ],
+                    [
+                      {
+                        "frame": 11
+                      },
+                      "value",
+                      6,
+                      11
+                    ],
+                    [
+                      {
+                        "frame": 12
+                      },
+                      "value",
+                      6,
+                      12
+                    ],
+                    [
+                      {
+                        "frame": 13
+                      },
+                      "value",
+                      6,
+                      13
+                    ],
+                    [
+                      {
+                        "frame": 14
+                      },
+                      "value",
+                      6,
+                      14
+                    ],
+                    [
+                      {
+                        "frame": 15
+                      },
+                      "value",
+                      6,
+                      15
+                    ],
+                    [
+                      {
+                        "frame": 16
+                      },
+                      "value",
+                      6,
+                      16
+                    ],
+                    [
+                      {
+                        "frame": 17
+                      },
+                      "value",
+                      6,
+                      17
+                    ],
+                    [
+                      {
+                        "frame": 18
+                      },
+                      "value",
+                      6,
+                      18
+                    ],
+                    [
+                      {
+                        "frame": 19
+                      },
+                      "value",
+                      6,
+                      19
+                    ],
+                    [
+                      {
+                        "frame": 20
+                      },
+                      "value",
+                      6,
+                      20
+                    ],
+                    [
+                      {
+                        "frame": 21
+                      },
+                      "value",
+                      6,
+                      21
+                    ],
+                    [
+                      {
+                        "frame": 22
+                      },
+                      "value",
+                      6,
+                      22
+                    ],
+                    [
+                      {
+                        "frame": 23
+                      },
+                      "value",
+                      6,
+                      23
+                    ]
+                  ],
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      0,
+      0,
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_21",
+          "rect": [
+            39,
+            29,
+            133,
+            184
+          ],
+          "offset": [
+            -7.5,
+            -8
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        36
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_23",
+          "rect": [
+            40,
+            30,
+            133,
+            185
+          ],
+          "offset": [
+            -6.5,
+            -9.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        37
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_22",
+          "rect": [
+            40,
+            30,
+            132,
+            184
+          ],
+          "offset": [
+            -7,
+            -9
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        38
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_17",
+          "rect": [
+            35,
+            28,
+            135,
+            182
+          ],
+          "offset": [
+            -10.5,
+            -6
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        39
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_18",
+          "rect": [
+            37,
+            28,
+            133,
+            182
+          ],
+          "offset": [
+            -9.5,
+            -6
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        40
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_02",
+          "rect": [
+            40,
+            30,
+            132,
+            185
+          ],
+          "offset": [
+            -7,
+            -9.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        41
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_01",
+          "rect": [
+            40,
+            30,
+            133,
+            185
+          ],
+          "offset": [
+            -6.5,
+            -9.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        42
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_08",
+          "rect": [
+            36,
+            29,
+            133,
+            182
+          ],
+          "offset": [
+            -10.5,
+            -7
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        43
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_03",
+          "rect": [
+            40,
+            29,
+            132,
+            185
+          ],
+          "offset": [
+            -7,
+            -8.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        44
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_20",
+          "rect": [
+            39,
+            29,
+            132,
+            183
+          ],
+          "offset": [
+            -8,
+            -7.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        45
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_04",
+          "rect": [
+            40,
+            29,
+            131,
+            185
+          ],
+          "offset": [
+            -7.5,
+            -8.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        46
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-S_WALK_11",
+          "rect": [
+            35,
+            30,
+            133,
+            184
+          ],
+          "offset": [
+            -11.5,
+            -9
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        47
+      ]
+    ]
+  ]
+]

@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "f0xJRT61lNxI5nnKxe7GvM"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "規則-124X48",
+      "rect": [
+        11,
+        0,
+        101,
+        48
+      ],
+      "offset": [
+        -0.5,
+        0
+      ],
+      "originalSize": [
+        124,
+        48
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

@@ -1,0 +1,669 @@
+[
+  1,
+  [
+    "75CdsGuUtH2aKltA7hMDPt",
+    "eeDy8d7nhJCYgNgjUDtCxU",
+    "b7P3NyUFFKyK8mrJyOpXeo",
+    "e9wwfdD01PzqHG0H9lMIwH",
+    "d54Mk/xgpNK5+Wm76vuBwf",
+    "56XEthm21Brqcci40Ypxc8",
+    "0aBWiKuw5Bs74OOS6gd2Rq",
+    "68878nKoVFnLZV6+YjaRzd",
+    "d4vvL+1bZKvJhgNaMl2t8O",
+    "8bSJTo4jRBWYli5V+UZYtr",
+    "e6Mc3ISbFOB7NQwqQisiTa",
+    "83B5QjJb9HeocR/WDIZG2y",
+    "f4p2+xtChPxb7nhUyBXdFe",
+    "a1DK2CHZxKKp/xEb43GnhF",
+    "bc4yZxYJdAGIs0Y5aKMI07",
+    "9dmSCqdepBdb7Wn0k3+URw",
+    "47+IVbNVlGgIcEFlVc+Zvn",
+    "31V3VhdWVGd4jn8mXw3t6T",
+    "3esgYjL2BCqIcjTAPiFfuP",
+    "4ea9NTTYJNVKjbcSh5RU+E",
+    "78DZ3QnW1NWYJqg3kc0E8m",
+    "b4kGn99hdNS7pSKO583xPA"
+  ],
+  [
+    "_textureSetter",
+    "value"
+  ],
+  [
+    "cc.SpriteFrame",
+    [
+      "cc.AnimationClip",
+      [
+        "_name",
+        "_duration",
+        "sample",
+        "speed",
+        "curveData"
+      ],
+      -1,
+      11
+    ]
+  ],
+  [
+    [
+      1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  [
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_05",
+          "rect": [
+            29,
+            36,
+            158,
+            176
+          ],
+          "offset": [
+            -5,
+            -11
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        [
+          0,
+          "ArmorHit",
+          12,
+          1,
+          20,
+          [
+            {},
+            "comps",
+            11,
+            [
+              {},
+              "cc.Sprite",
+              11,
+              [
+                {},
+                "spriteFrame",
+                12,
+                [
+                  [
+                    [
+                      {
+                        "frame": 1
+                      },
+                      "value",
+                      6,
+                      0
+                    ],
+                    [
+                      {
+                        "frame": 2
+                      },
+                      "value",
+                      6,
+                      1
+                    ],
+                    [
+                      {
+                        "frame": 3
+                      },
+                      "value",
+                      6,
+                      2
+                    ],
+                    [
+                      {
+                        "frame": 4
+                      },
+                      "value",
+                      6,
+                      3
+                    ],
+                    [
+                      {
+                        "frame": 5
+                      },
+                      "value",
+                      6,
+                      4
+                    ],
+                    [
+                      {
+                        "frame": 6
+                      },
+                      "value",
+                      6,
+                      5
+                    ],
+                    [
+                      {
+                        "frame": 7
+                      },
+                      "value",
+                      6,
+                      6
+                    ],
+                    [
+                      {
+                        "frame": 8
+                      },
+                      "value",
+                      6,
+                      7
+                    ],
+                    [
+                      {
+                        "frame": 9
+                      },
+                      "value",
+                      6,
+                      8
+                    ],
+                    [
+                      {
+                        "frame": 10
+                      },
+                      "value",
+                      6,
+                      9
+                    ],
+                    [
+                      {
+                        "frame": 11
+                      },
+                      "value",
+                      6,
+                      10
+                    ]
+                  ],
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      0,
+      0,
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_04",
+          "rect": [
+            30,
+            35,
+            154,
+            177
+          ],
+          "offset": [
+            -6,
+            -10.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        12
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_06",
+          "rect": [
+            29,
+            38,
+            161,
+            174
+          ],
+          "offset": [
+            -3.5,
+            -12
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        13
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_10",
+          "rect": [
+            32,
+            31,
+            142,
+            181
+          ],
+          "offset": [
+            -10,
+            -8.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        14
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_08",
+          "rect": [
+            30,
+            35,
+            154,
+            177
+          ],
+          "offset": [
+            -6,
+            -10.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        15
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_01",
+          "rect": [
+            30,
+            33,
+            151,
+            179
+          ],
+          "offset": [
+            -7.5,
+            -9.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        16
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_07",
+          "rect": [
+            29,
+            37,
+            159,
+            175
+          ],
+          "offset": [
+            -4.5,
+            -11.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        17
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_03",
+          "rect": [
+            29,
+            36,
+            158,
+            176
+          ],
+          "offset": [
+            -5,
+            -11
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        18
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_09",
+          "rect": [
+            31,
+            32,
+            148,
+            180
+          ],
+          "offset": [
+            -8,
+            -9
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        19
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_02",
+          "rect": [
+            29,
+            38,
+            161,
+            174
+          ],
+          "offset": [
+            -3.5,
+            -12
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        20
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_HIT_00",
+          "rect": [
+            33,
+            30,
+            138,
+            182
+          ],
+          "offset": [
+            -11,
+            -8
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        21
+      ]
+    ]
+  ]
+]

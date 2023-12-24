@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "21o1rd4m9MV43N/hC5SVjr"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "MONSTER-D_IDLE_23",
+      "rect": [
+        32,
+        31,
+        139,
+        181
+      ],
+      "offset": [
+        -11.5,
+        -8.5
+      ],
+      "originalSize": [
+        226,
+        226
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

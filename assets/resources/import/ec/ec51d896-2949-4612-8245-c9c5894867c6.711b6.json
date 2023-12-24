@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "aaIwvNiApAbo85vcILqR2k"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "皇冠115X115",
+      "rect": [
+        14,
+        19,
+        93,
+        89
+      ],
+      "offset": [
+        3,
+        -6
+      ],
+      "originalSize": [
+        115,
+        115
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

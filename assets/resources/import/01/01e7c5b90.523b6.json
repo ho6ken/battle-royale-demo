@@ -1,0 +1,993 @@
+[
+  1,
+  [
+    "22do7MBUZLaqLOrbfRKenR",
+    "acNFo+POVK3pa2Jgm4MH96",
+    "ebD0FQtCZCH5tgJv4Ly+rJ",
+    "12xY9tL8hIHYXz/K9ZdaIw",
+    "bb6iBWx7VHA6m4rhdH1bHL",
+    "57LWKP62VOo6UiMjFTLcFU",
+    "938azj+IdJWaV9zb7cuM+o",
+    "66R0HAM49OALSvguC0zlwe",
+    "3bvFqTxopBCYVE+61Kv6B7",
+    "551dEdPnhFsLI4urukh5gY",
+    "03U7Iyv9xLAa3vm9gIt68o",
+    "59vg0fpMNI2auz5wVPsHBq",
+    "d71DielVhDe6fBtZg3bE/5",
+    "dcaXaS7zxAJbRe3L4lOFCx",
+    "52bM93X+ZM0q1eb2k0QyLu",
+    "adXMy3uVFKG5fe7BOe2IAY",
+    "06EGNsWnpNdJxxsHMJz8Kq",
+    "adQXoYIxFMRrI6+ITBss1q",
+    "3dvbwF3g9KsLZIDQdWC23n",
+    "d3srHEvBxH1qIE9FDy+HZ8",
+    "09Lcf2esZD7YlI/j4KDRK2",
+    "d8FJhbh6BLCLOCdu+0XwaY",
+    "28CJdG7YpDnIuRY2bSoxZi",
+    "027xHPBG1IgI5RAdv5sDvR",
+    "28beXjkWpL1L+iKmuTcFuU",
+    "01CfYGrQVDN6fuDU0SnU5n",
+    "e8Ow2lBnhLBIQROQ5bSbx2",
+    "4d7fpjn7FCkYV9838idxYV",
+    "84FHrqBUNFd43aSY34xcM4",
+    "19ZZ5xQClF25iJl+fiKpHD",
+    "5e9RCcp1xOJqy7khUrYeb6",
+    "b3SbNYn6ZMZIScT/15BtNJ",
+    "c7YqRKsrtBfaZpkl0AB+Th",
+    "49wGqLtotLRYXTdvUvEpar"
+  ],
+  [
+    "_textureSetter",
+    "value"
+  ],
+  [
+    "cc.SpriteFrame",
+    [
+      "cc.AnimationClip",
+      [
+        "_name",
+        "_duration",
+        "sample",
+        "speed",
+        "curveData"
+      ],
+      -1,
+      11
+    ]
+  ],
+  [
+    [
+      1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  [
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_05",
+          "rect": [
+            16,
+            31,
+            156,
+            181
+          ],
+          "offset": [
+            -19,
+            -8.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_11",
+          "rect": [
+            8,
+            27,
+            173,
+            185
+          ],
+          "offset": [
+            -18.5,
+            -6.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_15",
+          "rect": [
+            22,
+            30,
+            150,
+            182
+          ],
+          "offset": [
+            -16,
+            -8
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        2
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_03",
+          "rect": [
+            27,
+            32,
+            143,
+            180
+          ],
+          "offset": [
+            -14.5,
+            -9
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        3
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_13",
+          "rect": [
+            1,
+            29,
+            175,
+            183
+          ],
+          "offset": [
+            -24.5,
+            -7.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        4
+      ]
+    ],
+    [
+      [
+        [
+          0,
+          "ArmorAtk",
+          17,
+          1,
+          20,
+          [
+            {},
+            "comps",
+            11,
+            [
+              {},
+              "cc.Sprite",
+              11,
+              [
+                {},
+                "spriteFrame",
+                12,
+                [
+                  [
+                    [
+                      {
+                        "frame": 0
+                      },
+                      "value",
+                      6,
+                      0
+                    ],
+                    [
+                      {
+                        "frame": 1
+                      },
+                      "value",
+                      6,
+                      1
+                    ],
+                    [
+                      {
+                        "frame": 2
+                      },
+                      "value",
+                      6,
+                      2
+                    ],
+                    [
+                      {
+                        "frame": 3
+                      },
+                      "value",
+                      6,
+                      3
+                    ],
+                    [
+                      {
+                        "frame": 4
+                      },
+                      "value",
+                      6,
+                      4
+                    ],
+                    [
+                      {
+                        "frame": 5
+                      },
+                      "value",
+                      6,
+                      5
+                    ],
+                    [
+                      {
+                        "frame": 6
+                      },
+                      "value",
+                      6,
+                      6
+                    ],
+                    [
+                      {
+                        "frame": 7
+                      },
+                      "value",
+                      6,
+                      7
+                    ],
+                    [
+                      {
+                        "frame": 8
+                      },
+                      "value",
+                      6,
+                      8
+                    ],
+                    [
+                      {
+                        "frame": 9
+                      },
+                      "value",
+                      6,
+                      9
+                    ],
+                    [
+                      {
+                        "frame": 10
+                      },
+                      "value",
+                      6,
+                      10
+                    ],
+                    [
+                      {
+                        "frame": 11
+                      },
+                      "value",
+                      6,
+                      11
+                    ],
+                    [
+                      {
+                        "frame": 12
+                      },
+                      "value",
+                      6,
+                      12
+                    ],
+                    [
+                      {
+                        "frame": 13
+                      },
+                      "value",
+                      6,
+                      13
+                    ],
+                    [
+                      {
+                        "frame": 14
+                      },
+                      "value",
+                      6,
+                      14
+                    ],
+                    [
+                      {
+                        "frame": 15
+                      },
+                      "value",
+                      6,
+                      15
+                    ],
+                    [
+                      {
+                        "frame": 16
+                      },
+                      "value",
+                      6,
+                      16
+                    ]
+                  ],
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11,
+                  11
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      0,
+      0,
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_09",
+          "rect": [
+            9,
+            28,
+            174,
+            184
+          ],
+          "offset": [
+            -17,
+            -7
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        22
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_04",
+          "rect": [
+            26,
+            33,
+            144,
+            179
+          ],
+          "offset": [
+            -15,
+            -9.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        23
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_00",
+          "rect": [
+            33,
+            30,
+            138,
+            182
+          ],
+          "offset": [
+            -11,
+            -8
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        24
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_06",
+          "rect": [
+            8,
+            30,
+            170,
+            182
+          ],
+          "offset": [
+            -20,
+            -8
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        25
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_02",
+          "rect": [
+            29,
+            31,
+            141,
+            181
+          ],
+          "offset": [
+            -13.5,
+            -8.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        26
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_01",
+          "rect": [
+            31,
+            31,
+            139,
+            181
+          ],
+          "offset": [
+            -12.5,
+            -8.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        27
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_12",
+          "rect": [
+            4,
+            28,
+            174,
+            184
+          ],
+          "offset": [
+            -22,
+            -7
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        28
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_10",
+          "rect": [
+            10,
+            27,
+            173,
+            185
+          ],
+          "offset": [
+            -16.5,
+            -6.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        29
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_14",
+          "rect": [
+            17,
+            29,
+            156,
+            183
+          ],
+          "offset": [
+            -18,
+            -7.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        30
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_07",
+          "rect": [
+            7,
+            29,
+            176,
+            183
+          ],
+          "offset": [
+            -18,
+            -7.5
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        31
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_16",
+          "rect": [
+            28,
+            30,
+            143,
+            182
+          ],
+          "offset": [
+            -13.5,
+            -8
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        32
+      ]
+    ],
+    [
+      [
+        {
+          "name": "MONSTER-D_ATTACK_08",
+          "rect": [
+            8,
+            28,
+            175,
+            184
+          ],
+          "offset": [
+            -17.5,
+            -7
+          ],
+          "originalSize": [
+            226,
+            226
+          ],
+          "capInsets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        0
+      ],
+      0,
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        33
+      ]
+    ]
+  ]
+]
