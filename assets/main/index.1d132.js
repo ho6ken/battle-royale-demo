@@ -11940,24 +11940,25 @@ window.__require = function e(t, n, r) {
         this.cd = this._model.cd;
       };
       TileView.prototype.hit = function() {
+        var _a, _b;
         return __awaiter(this, void 0, Promise, function() {
           var animDyn, tween;
           var _this = this;
-          return __generator(this, function(_a) {
-            switch (_a.label) {
+          return __generator(this, function(_c) {
+            switch (_c.label) {
              case 0:
               if (!(this.group == TileDefine_1.TileGroup.Enemy)) return [ 3, 2 ];
               animDyn = function(dyn) {
                 _this.avatar.node.active = !dyn;
-                _this.anim.node.active = dyn;
+                _this.anim && (_this.anim.node.active = dyn);
               };
               animDyn(true);
-              this.anim.play(TileDefine_1.TileType[this.type] + "Hit");
+              null === (_a = this.anim) || void 0 === _a ? void 0 : _a.play(TileDefine_1.TileType[this.type] + "Hit");
               return [ 4, WaitUtil_1.WaitUtil.waitMs(800) ];
 
              case 1:
-              _a.sent();
-              this.anim.stop();
+              _c.sent();
+              null === (_b = this.anim) || void 0 === _b ? void 0 : _b.stop();
               animDyn(false);
               return [ 3, 3 ];
 
@@ -11970,7 +11971,7 @@ window.__require = function e(t, n, r) {
                 color: cc.Color.WHITE
               });
               tween.start();
-              _a.label = 3;
+              _c.label = 3;
 
              case 3:
               return [ 2 ];
@@ -12013,26 +12014,27 @@ window.__require = function e(t, n, r) {
         }
       };
       TileView.prototype.atk = function() {
+        var _a, _b;
         return __awaiter(this, void 0, Promise, function() {
           var animDyn;
           var _this = this;
-          return __generator(this, function(_a) {
-            switch (_a.label) {
+          return __generator(this, function(_c) {
+            switch (_c.label) {
              case 0:
               if (!(this.group == TileDefine_1.TileGroup.Enemy)) return [ 3, 2 ];
               animDyn = function(dyn) {
                 _this.avatar.node.active = !dyn;
-                _this.anim.node.active = dyn;
+                _this.anim && (_this.anim.node.active = dyn);
               };
               animDyn(true);
-              this.anim.play(TileDefine_1.TileType[this.type] + "Atk");
+              null === (_a = this.anim) || void 0 === _a ? void 0 : _a.play(TileDefine_1.TileType[this.type] + "Atk");
               return [ 4, WaitUtil_1.WaitUtil.waitMs(800) ];
 
              case 1:
-              _a.sent();
-              this.anim.stop();
+              _c.sent();
+              null === (_b = this.anim) || void 0 === _b ? void 0 : _b.stop();
               animDyn(false);
-              _a.label = 2;
+              _c.label = 2;
 
              case 2:
               return [ 2 ];
@@ -12041,26 +12043,27 @@ window.__require = function e(t, n, r) {
         });
       };
       TileView.prototype.walk = function() {
+        var _a, _b;
         return __awaiter(this, void 0, Promise, function() {
           var animDyn;
           var _this = this;
-          return __generator(this, function(_a) {
-            switch (_a.label) {
+          return __generator(this, function(_c) {
+            switch (_c.label) {
              case 0:
               if (!(this.group == TileDefine_1.TileGroup.Enemy)) return [ 3, 2 ];
               animDyn = function(dyn) {
                 _this.avatar.node.active = !dyn;
-                _this.anim.node.active = dyn;
+                _this.anim && (_this.anim.node.active = dyn);
               };
               animDyn(true);
-              this.anim.play(TileDefine_1.TileType[this.type] + "Walk");
+              null === (_a = this.anim) || void 0 === _a ? void 0 : _a.play(TileDefine_1.TileType[this.type] + "Walk");
               return [ 4, WaitUtil_1.WaitUtil.waitMs(800) ];
 
              case 1:
-              _a.sent();
-              this.anim.stop();
+              _c.sent();
+              null === (_b = this.anim) || void 0 === _b ? void 0 : _b.stop();
               animDyn(false);
-              _a.label = 2;
+              _c.label = 2;
 
              case 2:
               return [ 2 ];
