@@ -2564,6 +2564,7 @@ window.__require = function e(t, n, r) {
           this.step(tile);
         }
         this._cmd.add(tile, new TileCd_1.TileCd());
+        this._param.skip.push(tile.id);
       };
       EnemyWalk.prototype.contacted = function(center, atker) {
         var ay = Object.values(GridDefine_1.FOUR_DIR);
@@ -4420,7 +4421,7 @@ window.__require = function e(t, n, r) {
       };
       GridDirector.prototype.crush = function(act, tile) {
         var _this = this;
-        var time = tile.group == TileDefine_1.TileGroup.Norm ? 1.2 : .2;
+        var time = tile.group == TileDefine_1.TileGroup.Norm ? 1.5 : .2;
         this._tween.call(function() {
           tile.crushed();
           tile.node.scale = 1;
@@ -4545,7 +4546,7 @@ window.__require = function e(t, n, r) {
           angle: 360
         });
         this._tween.call(function() {
-          return tile.nextRound();
+          return tile.nextRound(act.dec);
         });
         return time;
       };
@@ -4574,7 +4575,7 @@ window.__require = function e(t, n, r) {
         return time;
       };
       GridDirector.prototype.atk = function(act, tile) {
-        var time = 1.8;
+        var time = 2.1;
         var pos = tile.node.position;
         this._tween.call(function() {
           tile.atk().then(function() {
@@ -6082,6 +6083,7 @@ window.__require = function e(t, n, r) {
                 cmd.add(fromTile, new TileMove_1.TileMove(toPos));
                 param.model.setTile(toPos, fromTile);
                 cmd.add(fromTile, new TileCd_1.TileCd());
+                param.skip.push(fromTile.id);
               }
               param.load.push(cmd);
               return [ 2, res ];
@@ -7828,6 +7830,7 @@ window.__require = function e(t, n, r) {
         _this._check = null;
         _this._port = null;
         _this._ultimate = null;
+        _this._skip = [];
         _this._check = new LimitCheck_1.LimitCheck();
         _this._check.push(new FirstCheck_1.FirstCheck());
         _this._check.push(new SecondCheck_1.SecondCheck());
@@ -7860,6 +7863,7 @@ window.__require = function e(t, n, r) {
             switch (_a.label) {
              case 0:
               load = [];
+              this._skip = [];
               param = {
                 model: model,
                 load: load,
@@ -7867,7 +7871,8 @@ window.__require = function e(t, n, r) {
                 to: {
                   pos: pos,
                   tile: model.getTile(pos)
-                }
+                },
+                skip: this._skip
               };
               return [ 4, this._check.execute(param) ];
 
@@ -7879,7 +7884,8 @@ window.__require = function e(t, n, r) {
                 model: model,
                 load: load,
                 first: param.from.tile,
-                second: param.to.tile
+                second: param.to.tile,
+                skip: this._skip
               }) ];
 
              case 2:
@@ -7920,13 +7926,15 @@ window.__require = function e(t, n, r) {
       SelectHandler.prototype.nextRound = function(model, load) {
         return __awaiter(this, void 0, Promise, function() {
           var cmd;
+          var _this = this;
           return __generator(this, function(_a) {
             cmd = new GridCmd_1.GridCmd();
             GridDefine_1.FOR_COL_ROW(function(pos) {
               var tile = model.getTile(pos);
               if (tile && (tile.group == TileDefine_1.TileGroup.Player || tile.group == TileDefine_1.TileGroup.Enemy)) {
-                tile.nextRound();
-                cmd.add(tile, new TileNext_1.TileNext());
+                var dec = -1 == _this._skip.indexOf(tile.id);
+                tile.nextRound(dec);
+                cmd.add(tile, new TileNext_1.TileNext(dec));
               }
             });
             cc.log("\u6b21\u56de");
@@ -10335,6 +10343,7 @@ window.__require = function e(t, n, r) {
                   cmd.add(tile, new TileFall_1.TileFall(end));
                   param.changes.push(end);
                   cc.log("\u586b\u88dc", tile.id, tile.type, end);
+                  param.skip.push(tile.id);
                 }
               }
             });
@@ -11136,9 +11145,10 @@ window.__require = function e(t, n, r) {
         this._trans = type;
         this.crushed = false;
       };
-      TileModel.prototype.nextRound = function() {
+      TileModel.prototype.nextRound = function(dec) {
         var _a;
-        this.cd = (--this.cd).limit(0, null !== (_a = this._data.cd) && void 0 !== _a ? _a : 0);
+        void 0 === dec && (dec = true);
+        dec && (this.cd = (--this.cd).limit(0, null !== (_a = this._data.cd) && void 0 !== _a ? _a : 0));
       };
       TileModel.prototype.fullHp = function() {
         var _a;
@@ -11260,8 +11270,12 @@ window.__require = function e(t, n, r) {
     var GridCmd_1 = require("../mvc/GridCmd");
     var TileNext = function(_super) {
       __extends(TileNext, _super);
-      function TileNext() {
-        return null !== _super && _super.apply(this, arguments) || this;
+      function TileNext(dec) {
+        void 0 === dec && (dec = true);
+        var _this = _super.call(this) || this;
+        _this.dec = true;
+        _this.dec = dec;
+        return _this;
       }
       Object.defineProperty(TileNext.prototype, "type", {
         get: function() {
@@ -11920,8 +11934,9 @@ window.__require = function e(t, n, r) {
           });
         });
       };
-      TileView.prototype.nextRound = function() {
-        this._model.nextRound();
+      TileView.prototype.nextRound = function(dec) {
+        void 0 === dec && (dec = true);
+        this._model.nextRound(dec);
         this.cd = this._model.cd;
       };
       TileView.prototype.hit = function() {
