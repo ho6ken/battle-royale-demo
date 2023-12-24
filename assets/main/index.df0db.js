@@ -2134,12 +2134,14 @@ window.__require = function e(t, n, r) {
           return __generator(this, function(_a) {
             this._param = param;
             this._cmd = new GridCmd_1.GridCmd();
-            param.atkers.forEach(function(atker) {
-              return _this._cmd.add(atker, new TileAtk_1.TileAtk());
+            param.enemyAtks.forEach(function(id) {
+              var atker = param.model.getTileById(id);
+              _this._cmd.add(atker, new TileAtk_1.TileAtk());
             });
             this._cmd.pass(.8);
-            param.atkers.forEach(function(atker) {
-              return Object.values(GridDefine_1.FOUR_DIR).forEach(function(dir) {
+            param.enemyAtks.forEach(function(id) {
+              var atker = param.model.getTileById(id);
+              Object.values(GridDefine_1.FOUR_DIR).forEach(function(dir) {
                 return _this.attack(atker, dir);
               });
             });
@@ -2545,8 +2547,8 @@ window.__require = function e(t, n, r) {
           var _this = this;
           return __generator(this, function(_a) {
             this._param = param;
-            atkers = Array.from(param.atkers);
-            param.atkers = [];
+            param.enemyAtks = [];
+            atkers = Array.from(param.model.enemies);
             atkers.forEach(function(atker) {
               return _this.walk(param.model.getTileById(atker.id));
             }, this);
@@ -2574,6 +2576,7 @@ window.__require = function e(t, n, r) {
           var tile = this._param.model.getTile(pos);
           if (tile && tile.group == TileDefine_1.TileGroup.Player) {
             this._param.atkers.push(atker);
+            this._param.enemyAtks.push(atker.id);
             return true;
           }
         }
@@ -4078,7 +4081,6 @@ window.__require = function e(t, n, r) {
           return __generator(this, function(_a) {
             switch (_a.label) {
              case 0:
-              this._model.clearManage();
               this.genNorm();
               this.genPlayer();
               this.genBlocks();
@@ -4865,7 +4867,6 @@ window.__require = function e(t, n, r) {
         var _a;
         _super.prototype.setTile.call(this, pos, tile);
         if (tile) {
-          tile.manage = this.addManage.bind(this);
           null !== (_a = this._cache) && void 0 !== _a ? _a : this._cache = new Map();
           this._cache.set(tile.id, tile);
         }
@@ -4874,7 +4875,6 @@ window.__require = function e(t, n, r) {
         var _a;
         var tile = _super.prototype.getTile.call(this, pos);
         if (tile) {
-          tile.manage = this.addManage.bind(this);
           null !== (_a = this._cache) && void 0 !== _a ? _a : this._cache = new Map();
           this._cache.set(tile.id, tile);
         }
@@ -4896,19 +4896,33 @@ window.__require = function e(t, n, r) {
         var idx = RandUtil_1.RandUtil.randWeights(data.weights);
         return data.types[idx];
       };
+      GridModel.prototype.checkCache = function() {
+        var _this = this;
+        Array.from(this._cache.values()).forEach(function(elm) {
+          var disapper = true;
+          GridDefine_1.FOR_COL_ROW(function(pos) {
+            var _a;
+            if (disapper && elm && (null === (_a = _super.prototype.getTile.call(_this, pos)) || void 0 === _a ? void 0 : _a.id) == elm.id) {
+              disapper = false;
+              return;
+            }
+            return;
+          });
+          disapper && _this._cache.delete(elm.id);
+        }, this);
+      };
       GridModel.prototype.getPlayer = function() {
+        this.checkCache();
         return Array.from(this._cache.values()).filter(function(elm) {
           return elm.group == TileDefine_1.TileGroup.Player;
         })[0];
       };
       GridModel.prototype.getEnemies = function() {
+        this.checkCache();
         return Array.from(this._cache.values()).filter(function(elm) {
           return elm.group == TileDefine_1.TileGroup.Enemy;
         });
       };
-      GridModel.prototype.clearManage = function() {};
-      GridModel.prototype.addManage = function(tile) {};
-      GridModel.prototype.removeManage = function(tile) {};
       GridModel.prototype.isCrush = function(center) {
         return this.getCrushesH(center).length >= 3 || this.getCrushesV(center).length >= 3 || this.getCrushesO(center).length >= 4 || this.getCrushesT(center).length >= 5 || this.getCrushesL(center).length >= 5;
       };
@@ -7395,6 +7409,8 @@ window.__require = function e(t, n, r) {
         _this.type = null;
         _this.num = null;
         _this._finished = false;
+        _this.tileType = TileDefine_1.TileType.None;
+        _this.tileNum = 0;
         return _this;
       }
       RuleView.prototype.clear = function() {
@@ -7412,6 +7428,7 @@ window.__require = function e(t, n, r) {
       };
       RuleView.prototype.setNum = function(num) {
         this.num.string = "x" + num.limit(0, Number.MAX_VALUE);
+        this.tileNum = num;
         if (num <= 0 && false == this._finished) {
           this._finished = true;
           this.setColor();
@@ -7433,6 +7450,8 @@ window.__require = function e(t, n, r) {
              case 1:
               _a.spriteFrame = _b.sent();
               num > 0 && (this.node.active = true);
+              this.tileType = type;
+              this.tileNum = num;
               _b.label = 2;
 
              case 2:
@@ -9748,6 +9767,7 @@ window.__require = function e(t, n, r) {
       };
       StageCtrl.prototype.crushed = function(type, num) {
         this._model.decRule(type, num) && this.win();
+        this._view.decRule(type, num);
       };
       StageCtrl.prototype.win = function() {
         return __awaiter(this, void 0, Promise, function() {
@@ -10083,6 +10103,14 @@ window.__require = function e(t, n, r) {
               return [ 2 ];
             }
           });
+        });
+      };
+      StageView.prototype.decRule = function(type, num) {
+        this.rules.forEach(function(rule) {
+          if (rule.tileType == type) {
+            var curr = rule.tileNum - num;
+            rule.setNum(curr);
+          }
         });
       };
       __decorate([ property(cc.Label) ], StageView.prototype, "lv", void 0);
@@ -11936,6 +11964,7 @@ window.__require = function e(t, n, r) {
       TileView.prototype.die = function() {
         return __awaiter(this, void 0, Promise, function() {
           return __generator(this, function(_a) {
+            this.group == TileDefine_1.TileGroup.Enemy && EventMgr_1.EventMgr.inst().emit(EventCfg_1.EventSrc.Crushed, this.type, 1);
             this._model.energy > 0 && EventMgr_1.EventMgr.inst().emit(EventCfg_1.EventSrc.Charge, this._model.energy);
             return [ 2 ];
           });
@@ -12561,7 +12590,6 @@ window.__require = function e(t, n, r) {
           this.btn.target.color = cc.Color.WHITE;
           null === (_a = this.btnsfx) || void 0 === _a ? void 0 : _a.play();
         }
-        cc.log("\u5145\u80fd", value, this._energy);
       };
       UltView.prototype.onClick = function(event, data) {
         var _a;
