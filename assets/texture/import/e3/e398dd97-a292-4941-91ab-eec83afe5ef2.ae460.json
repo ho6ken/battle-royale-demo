@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "2beZVfdYdEF67jX1N6dAxr"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "archer",
+      "rect": [
+        5,
+        1,
+        73,
+        94
+      ],
+      "offset": [
+        -6.5,
+        0
+      ],
+      "originalSize": [
+        96,
+        96
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

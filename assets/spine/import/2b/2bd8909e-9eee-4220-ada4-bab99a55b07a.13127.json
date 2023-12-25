@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "fcVO0kwD1MLJz/LI7MfKzE"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "BigWin",
+      "rect": [
+        3,
+        4,
+        1948,
+        4065
+      ],
+      "offset": [
+        1,
+        -0.5
+      ],
+      "originalSize": [
+        1952,
+        4072
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]
