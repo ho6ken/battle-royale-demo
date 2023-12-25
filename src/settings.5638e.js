@@ -22,7 +22,7 @@ window._CCSettings = {
         audio: "4099d",
         prefab: "2d3e3",
         spine: "b1fe9",
-        texture: "c58cb",
-        main: "2a584"
+        texture: "d0827",
+        main: "de418"
     }
 };

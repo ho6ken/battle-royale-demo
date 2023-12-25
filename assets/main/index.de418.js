@@ -4424,12 +4424,17 @@ window.__require = function e(t, n, r) {
       };
       GridDirector.prototype.crush = function(act, tile) {
         var _this = this;
-        var time = tile.group == TileDefine_1.TileGroup.Norm ? 1.5 : .2;
+        var time = tile.group == TileDefine_1.TileGroup.Norm ? .8 : .2;
         this._tween.call(function() {
           tile.crushed();
           tile.node.scale = 1;
         });
-        this._tween.to(time, {
+        if (tile.group == TileDefine_1.TileGroup.Norm) {
+          this._tween.delay(time);
+          this._tween.call(function() {
+            return tile.clear();
+          });
+        } else this._tween.to(time, {
           scale: 0
         });
         this._tween.call(function() {
@@ -11819,6 +11824,14 @@ window.__require = function e(t, n, r) {
       TileView.prototype.onDestroy = function() {
         this._model = null;
       };
+      TileView.prototype.clear = function() {
+        this.avatar.node.active = true;
+        this.spine.stop();
+        this.spine.scale(1);
+        this.spine.node.active = false;
+        this.anim.stop();
+        this.anim.node.active = false;
+      };
       TileView.prototype.init = function(model) {
         return __awaiter(this, void 0, Promise, function() {
           var name;
@@ -11950,15 +11963,16 @@ window.__require = function e(t, n, r) {
       TileView.prototype.hit = function() {
         var _a, _b;
         return __awaiter(this, void 0, Promise, function() {
-          var animDyn, tween;
+          var self, animDyn, tween;
           var _this = this;
           return __generator(this, function(_c) {
             switch (_c.label) {
              case 0:
+              self = this;
               if (!(this.group == TileDefine_1.TileGroup.Enemy)) return [ 3, 2 ];
               animDyn = function(dyn) {
-                _this.avatar.node.active = !dyn;
-                _this.anim && (_this.anim.node.active = dyn);
+                self.avatar.node.active = !dyn;
+                self.anim && (_this.anim.node.active = dyn);
               };
               animDyn(true);
               null === (_a = this.anim) || void 0 === _a ? void 0 : _a.play(TileDefine_1.TileType[this.type] + "Hit");
@@ -11998,9 +12012,10 @@ window.__require = function e(t, n, r) {
       };
       TileView.prototype.select = function(selected) {
         var _this = this;
+        var self = this;
         var spineDyn = function(dyn) {
-          _this.avatar.node.active = !dyn;
-          _this.spine.node.active = dyn;
+          self.avatar.node.active = !dyn;
+          self.spine.node.active = dyn;
         };
         switch (this.group) {
          case TileDefine_1.TileGroup.Norm:
@@ -12024,15 +12039,16 @@ window.__require = function e(t, n, r) {
       TileView.prototype.atk = function() {
         var _a, _b;
         return __awaiter(this, void 0, Promise, function() {
-          var animDyn;
+          var self, animDyn;
           var _this = this;
           return __generator(this, function(_c) {
             switch (_c.label) {
              case 0:
+              self = this;
               if (!(this.group == TileDefine_1.TileGroup.Enemy)) return [ 3, 2 ];
               animDyn = function(dyn) {
-                _this.avatar.node.active = !dyn;
-                _this.anim && (_this.anim.node.active = dyn);
+                self.avatar.node.active = !dyn;
+                self.anim && (_this.anim.node.active = dyn);
               };
               animDyn(true);
               null === (_a = this.anim) || void 0 === _a ? void 0 : _a.play(TileDefine_1.TileType[this.type] + "Atk");
@@ -12053,15 +12069,16 @@ window.__require = function e(t, n, r) {
       TileView.prototype.walk = function() {
         var _a, _b;
         return __awaiter(this, void 0, Promise, function() {
-          var animDyn;
+          var self, animDyn;
           var _this = this;
           return __generator(this, function(_c) {
             switch (_c.label) {
              case 0:
+              self = this;
               if (!(this.group == TileDefine_1.TileGroup.Enemy)) return [ 3, 2 ];
               animDyn = function(dyn) {
-                _this.avatar.node.active = !dyn;
-                _this.anim && (_this.anim.node.active = dyn);
+                self.avatar.node.active = !dyn;
+                self.anim && (_this.anim.node.active = dyn);
               };
               animDyn(true);
               null === (_a = this.anim) || void 0 === _a ? void 0 : _a.play(TileDefine_1.TileType[this.type] + "Walk");
@@ -12081,23 +12098,21 @@ window.__require = function e(t, n, r) {
       };
       TileView.prototype.crushed = function() {
         return __awaiter(this, void 0, Promise, function() {
-          var spineDyn;
-          var _this = this;
+          var self, spineDyn;
           return __generator(this, function(_a) {
             switch (_a.label) {
              case 0:
+              self = this;
               spineDyn = function(dyn) {
-                _this.avatar.node.active = !dyn;
-                _this.spine.node.active = dyn;
+                self.avatar.node.active = !dyn;
+                self.spine.node.active = dyn;
               };
               if (!(this.group == TileDefine_1.TileGroup.Norm)) return [ 3, 2 ];
               spineDyn(true);
-              this.spine.scale(2);
               return [ 4, this.spine.playOnce("Win") ];
 
              case 1:
               _a.sent();
-              this.spine.scale(1);
               this.spine.stop();
               spineDyn(false);
               _a.label = 2;

@@ -145,9 +145,9 @@
     [
       [
         {
-          "name": "stage-ultimate-bg",
+          "name": "stage-ultimate-bar",
           "rect": [
-            1055,
+            900,
             914,
             155,
             155

@@ -169,6 +169,15 @@
         "b0P4XgcmhE+4W+q0ZLxNJj": [
             "tile/yellow",
             "cc.Texture2D"
+        ],
+        "5fpIKjTj9Afodsuh8ujprl": [
+            "英雄大絕按鈕進度條_亮-155X155",
+            "cc.SpriteFrame",
+            1
+        ],
+        "a8M/TO9VRL3o5Bz5iCZwPK": [
+            "英雄大絕按鈕進度條_亮-155X155",
+            "cc.Texture2D"
         ]
     },
     "uuids": [
@@ -191,6 +200,7 @@
         "44Re3HVhtM6ZFdyRL0vUid",
         "50Jv8UZdZAb5Tych5UBx5S",
         "56Ggy9MehCXLiRC3WXoGSz",
+        "5fpIKjTj9Afodsuh8ujprl",
         "61+iC8XyBFvq7pl7CsuD6/",
         "69Dos/RG5Lt7vzPEN3BtTZ",
         "77dj+ROVFEI7op6HaN3ru5",
@@ -206,6 +216,7 @@
         "94UOr4o8pLn5ww6I2eWIAl",
         "97EAUdiytDk40dsB3Y5MpG",
         "9fy1Q1pWZFFJNO5SPdCMH2",
+        "a8M/TO9VRL3o5Bz5iCZwPK",
         "a9dW6kSQxFjrRdO/VbpbVo",
         "abdW3d0YlGV4Gk4Z5R3Puw",
         "ad4DTRYCdM+o8XwUBJjFA2",
@@ -233,17 +244,21 @@
         0,
         "37RnSoyhJL3ZHQ9uqZBFCH",
         0,
+        "41QUqo/tdPY7p5lzFeazUa",
+        0,
+        "5fpIKjTj9Afodsuh8ujprl",
+        0,
         "61+iC8XyBFvq7pl7CsuD6/",
         0,
         "78AAv0v7RFyY8Q5VCtTYF4",
         0,
         "7e73edn8JFTZhzky5H7Nmn",
         0,
-        "8aqVhDnCZO0rrYIBk7MA6S",
-        0,
         "928y+8lgJO1aKP+MZIxL4R",
         0,
         "97EAUdiytDk40dsB3Y5MpG",
+        0,
+        "a8M/TO9VRL3o5Bz5iCZwPK",
         0,
         "a9dW6kSQxFjrRdO/VbpbVo",
         0,
@@ -280,9 +295,9 @@
             "f7Asg1rC9CSIIf6qhUsihw",
             "ff7cOXdxdPQYyzDASROgxz"
         ],
-        "0b6e0eb1c": [
+        "0ac301750": [
             "10jjDLpFBOXJLmQkiXJefR",
-            "41QUqo/tdPY7p5lzFeazUa"
+            "8aqVhDnCZO0rrYIBk7MA6S"
         ]
     },
     "name": "texture",
@@ -295,8 +310,8 @@
         "import": [
             "091396125",
             "e8326",
-            "0b6e0eb1c",
-            "14f6c",
+            "0ac301750",
+            "cd890",
             "14lJNb56pFD74KVKcgQayh",
             "ed7a9",
             "16RybA35lJ66dfslabvmab",
