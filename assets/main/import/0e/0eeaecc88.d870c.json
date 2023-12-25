@@ -2,8 +2,8 @@
   1,
   [
     "ecpdLyjvZBwrvm+cedCcQy",
-    "abdW3d0YlGV4Gk4Z5R3Puw",
-    "1fw59eLQpC2rgezhXru9HP"
+    "32QudsfJpLfpm50Opzh1Gx",
+    "91ri7N/spLw6Or1UWzeMy5"
   ],
   [
     "node",
@@ -241,7 +241,7 @@
         ],
         [
           0,
-          "blue",
+          "red",
           1,
           [
             [
@@ -255,8 +255,8 @@
           ],
           [
             5,
-            76,
-            72
+            75,
+            70
           ]
         ]
       ],
@@ -304,16 +304,16 @@
     [
       [
         {
-          "name": "blue",
+          "name": "red",
           "rect": [
-            10,
-            12,
-            76,
-            72
+            11,
+            14,
+            75,
+            70
           ],
           "offset": [
-            0,
-            0
+            0.5,
+            -1
           ],
           "originalSize": [
             96,
