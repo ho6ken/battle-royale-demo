@@ -1,0 +1,163 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "ArcherWalk",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 24,
+  "sample": 1,
+  "speed": 20,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "7a6eeed7-56d4-4e0e-a182-2988211538c3"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "0b4dcb6d-f5b9-4745-b928-7c7e3de5e3bd"
+            }
+          },
+          {
+            "frame": 2,
+            "value": {
+              "__uuid__": "02003293-9d66-4b0c-9f7f-6f6f6b70e956"
+            }
+          },
+          {
+            "frame": 3,
+            "value": {
+              "__uuid__": "2625f293-cb4b-4874-a69c-a032b5e53394"
+            }
+          },
+          {
+            "frame": 4,
+            "value": {
+              "__uuid__": "9e8cbc47-c405-4ba6-8ea1-8a50773a8cca"
+            }
+          },
+          {
+            "frame": 5,
+            "value": {
+              "__uuid__": "78c80910-8f6f-4e2e-b112-0b045cf2f937"
+            }
+          },
+          {
+            "frame": 6,
+            "value": {
+              "__uuid__": "3c441b5d-2086-41ea-ab53-45252599fa0c"
+            }
+          },
+          {
+            "frame": 7,
+            "value": {
+              "__uuid__": "571bf0b1-ba04-4e5d-bfef-059cdc137bef"
+            }
+          },
+          {
+            "frame": 8,
+            "value": {
+              "__uuid__": "2e8df2c2-b411-4afa-93f7-eaa773e9e2c4"
+            }
+          },
+          {
+            "frame": 9,
+            "value": {
+              "__uuid__": "0dfc3a88-dcd3-4924-865f-796b0e7db697"
+            }
+          },
+          {
+            "frame": 10,
+            "value": {
+              "__uuid__": "66f82b54-64cc-4ada-81df-e855eea7d0e5"
+            }
+          },
+          {
+            "frame": 11,
+            "value": {
+              "__uuid__": "1e629b1a-4ff2-4443-a5f8-bac206293edb"
+            }
+          },
+          {
+            "frame": 12,
+            "value": {
+              "__uuid__": "f1fb4e81-eccf-4308-a5f4-b2a56c96f5cc"
+            }
+          },
+          {
+            "frame": 13,
+            "value": {
+              "__uuid__": "b52b1e40-d6d1-486e-a250-29a61695c80f"
+            }
+          },
+          {
+            "frame": 14,
+            "value": {
+              "__uuid__": "ebf599bf-b6a7-4851-830a-3099cc8dabf0"
+            }
+          },
+          {
+            "frame": 15,
+            "value": {
+              "__uuid__": "4e7be342-1dfe-49c2-a820-e80f1cf8510c"
+            }
+          },
+          {
+            "frame": 16,
+            "value": {
+              "__uuid__": "ff296d21-75f8-40ba-8b15-2b43906195d1"
+            }
+          },
+          {
+            "frame": 17,
+            "value": {
+              "__uuid__": "8d9c51bd-7e14-4d38-b033-428997923f6f"
+            }
+          },
+          {
+            "frame": 18,
+            "value": {
+              "__uuid__": "353b7c4d-2e74-402f-be2e-e95da87e56e0"
+            }
+          },
+          {
+            "frame": 19,
+            "value": {
+              "__uuid__": "4a484cfa-508a-43fa-889b-f8caf0e20363"
+            }
+          },
+          {
+            "frame": 20,
+            "value": {
+              "__uuid__": "1b0c0226-7525-45f6-838e-f984800c0a9e"
+            }
+          },
+          {
+            "frame": 21,
+            "value": {
+              "__uuid__": "7f8a02e4-e8d5-4aa5-87d5-4c41bff86ea1"
+            }
+          },
+          {
+            "frame": 22,
+            "value": {
+              "__uuid__": "de49f9f8-007b-48f2-b5a3-98c7624fbfe7"
+            }
+          },
+          {
+            "frame": 23,
+            "value": {
+              "__uuid__": "f2c9539a-8249-45f5-bed7-937742b173b8"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

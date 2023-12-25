@@ -1,0 +1,24 @@
+{
+  "ver": "2.3.7",
+  "uuid": "0086d1a6-ce71-4b76-b6b5-04c8c4652136",
+  "importer": "texture",
+  "type": "raw",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1940,
+  "height": 1134,
+  "platformSettings": {
+    "default": {
+      "formats": [
+        {
+          "name": "webp",
+          "quality": 80
+        }
+      ]
+    }
+  },
+  "subMetas": {}
+}

@@ -1,0 +1,20 @@
+{
+  "__type__": "cc.Material",
+  "_name": "SF4_dds_0089",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "829a282c-b049-4019-bd38-5ace8d8a6417"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "props": {
+        "mainTexture": {
+          "__uuid__": "e2ca86a5-c8be-4d0e-b706-c0c5c5b09f40"
+        }
+      },
+      "defines": {}
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "ArcherHit",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 11,
+  "sample": 1,
+  "speed": 20,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "cbeeb70b-02dc-49a0-a0ed-7884a690ac83"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "462df2b3-15cb-4c18-8ca8-979188849f1b"
+            }
+          },
+          {
+            "frame": 2,
+            "value": {
+              "__uuid__": "dc74539d-1387-422b-9b38-9c06f0b4bad8"
+            }
+          },
+          {
+            "frame": 3,
+            "value": {
+              "__uuid__": "0b1fb010-fb17-4ce7-b854-92b476d7dea4"
+            }
+          },
+          {
+            "frame": 4,
+            "value": {
+              "__uuid__": "cd1f6576-c81e-4c90-9c23-cedccf81a8ef"
+            }
+          },
+          {
+            "frame": 5,
+            "value": {
+              "__uuid__": "383edfbf-2a89-4730-b2ac-c5659f1b6d83"
+            }
+          },
+          {
+            "frame": 6,
+            "value": {
+              "__uuid__": "7f8522f8-79b2-4d82-a65b-61a92f9a4c5c"
+            }
+          },
+          {
+            "frame": 7,
+            "value": {
+              "__uuid__": "aed76046-a2a5-41f8-8f3e-2f5f5fa6e80d"
+            }
+          },
+          {
+            "frame": 8,
+            "value": {
+              "__uuid__": "86131f76-928d-4dc1-bbb0-1337a011d42a"
+            }
+          },
+          {
+            "frame": 9,
+            "value": {
+              "__uuid__": "c8b9b2d9-1a88-40c0-ba3b-4fc6f0c25e21"
+            }
+          },
+          {
+            "frame": 10,
+            "value": {
+              "__uuid__": "63619486-023e-4940-b37f-c44aebdfaa68"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

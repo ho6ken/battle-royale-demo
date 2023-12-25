@@ -1,0 +1,85 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "WarriorHit",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 11,
+  "sample": 1,
+  "speed": 20,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "b6651c1a-1cf3-40fd-9bb7-0e1555d0d1e0"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "2f6938d4-feea-4ac0-a8f0-3937235cfb91"
+            }
+          },
+          {
+            "frame": 2,
+            "value": {
+              "__uuid__": "bd64bd2a-3008-4a18-9d42-c3dfbd9b1ec3"
+            }
+          },
+          {
+            "frame": 3,
+            "value": {
+              "__uuid__": "37eb25c4-0456-4a18-9fc3-d3c5179d776e"
+            }
+          },
+          {
+            "frame": 4,
+            "value": {
+              "__uuid__": "847e2c2e-9b5f-4604-ac32-77d2bcd6761d"
+            }
+          },
+          {
+            "frame": 5,
+            "value": {
+              "__uuid__": "d31ba806-b6ea-42a1-888c-6bee533ba0c8"
+            }
+          },
+          {
+            "frame": 6,
+            "value": {
+              "__uuid__": "7cd1fda5-0041-4535-a4e3-844734c76725"
+            }
+          },
+          {
+            "frame": 7,
+            "value": {
+              "__uuid__": "7b770cde-09c7-4a7f-b0c7-dc39e4f8c0b7"
+            }
+          },
+          {
+            "frame": 8,
+            "value": {
+              "__uuid__": "f3aaf97b-6a4d-4876-b270-e433a88e0bc5"
+            }
+          },
+          {
+            "frame": 9,
+            "value": {
+              "__uuid__": "1ec59d19-5010-4476-a050-b8d1818746f7"
+            }
+          },
+          {
+            "frame": 10,
+            "value": {
+              "__uuid__": "65625700-9227-47dd-b41c-cb7c6e7ae6ef"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

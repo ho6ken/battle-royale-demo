@@ -1,0 +1,20 @@
+{
+  "__type__": "cc.Material",
+  "_name": "waeapon_trail_add_bw_sheet",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "829a282c-b049-4019-bd38-5ace8d8a6417"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {},
+      "props": {
+        "mainTexture": {
+          "__uuid__": "90d3242f-1289-4756-a180-7a86d01683a4"
+        }
+      }
+    }
+  }
+}

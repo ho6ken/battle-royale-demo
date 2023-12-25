@@ -1,0 +1,20 @@
+{
+  "__type__": "cc.Material",
+  "_name": "claws_trail_cross_a_new_sheet",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "829a282c-b049-4019-bd38-5ace8d8a6417"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {},
+      "props": {
+        "mainTexture": {
+          "__uuid__": "c35e8984-181f-4722-a304-892e813ce9a1"
+        }
+      }
+    }
+  }
+}
