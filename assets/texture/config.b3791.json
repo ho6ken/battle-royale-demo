@@ -169,15 +169,6 @@
         "b0P4XgcmhE+4W+q0ZLxNJj": [
             "tile/yellow",
             "cc.Texture2D"
-        ],
-        "5fpIKjTj9Afodsuh8ujprl": [
-            "英雄大絕按鈕進度條_亮-155X155",
-            "cc.SpriteFrame",
-            1
-        ],
-        "a8M/TO9VRL3o5Bz5iCZwPK": [
-            "英雄大絕按鈕進度條_亮-155X155",
-            "cc.Texture2D"
         ]
     },
     "uuids": [
@@ -200,7 +191,6 @@
         "44Re3HVhtM6ZFdyRL0vUid",
         "50Jv8UZdZAb5Tych5UBx5S",
         "56Ggy9MehCXLiRC3WXoGSz",
-        "5fpIKjTj9Afodsuh8ujprl",
         "61+iC8XyBFvq7pl7CsuD6/",
         "69Dos/RG5Lt7vzPEN3BtTZ",
         "77dj+ROVFEI7op6HaN3ru5",
@@ -216,7 +206,6 @@
         "94UOr4o8pLn5ww6I2eWIAl",
         "97EAUdiytDk40dsB3Y5MpG",
         "9fy1Q1pWZFFJNO5SPdCMH2",
-        "a8M/TO9VRL3o5Bz5iCZwPK",
         "a9dW6kSQxFjrRdO/VbpbVo",
         "abdW3d0YlGV4Gk4Z5R3Puw",
         "ad4DTRYCdM+o8XwUBJjFA2",
@@ -253,7 +242,7 @@
             "bcrghJfo1L94mJF6neb0RH",
             "f7l244aV9Aq5jEaMwgusHe"
         ],
-        "0fe62478f": [
+        "08eaa5a0c": [
             "00htGmznFLdra1BMjEZSE2",
             "1fw59eLQpC2rgezhXru9HP",
             "25huXiWwhBAZo/N1/Nx7Oo",
@@ -265,7 +254,6 @@
             "7aPYr3a9pOo51Tv+cUgcbW",
             "83GeO6a7tKFZAfzjc9glpf",
             "91ri7N/spLw6Or1UWzeMy5",
-            "a8M/TO9VRL3o5Bz5iCZwPK",
             "b0P4XgcmhE+4W+q0ZLxNJj",
             "b81M+S1tdIlrI2+PpSgYtt",
             "bfgllfP/dJ1Y4arjjm+drG",
@@ -286,8 +274,8 @@
         "import": [
             "0590ec641",
             "fc948",
-            "0fe62478f",
-            "3c9c5",
+            "08eaa5a0c",
+            "a206c",
             "14lJNb56pFD74KVKcgQayh",
             "ed7a9",
             "16RybA35lJ66dfslabvmab",
@@ -306,8 +294,6 @@
             "21d7e",
             "56Ggy9MehCXLiRC3WXoGSz",
             "f83b2",
-            "5fpIKjTj9Afodsuh8ujprl",
-            "027ec",
             "77dj+ROVFEI7op6HaN3ru5",
             "ea319",
             "77jEVv2ZlAr6ReaKl+irt/",
@@ -350,8 +336,6 @@
             "ead10",
             "91ri7N/spLw6Or1UWzeMy5",
             "67c81",
-            "a8M/TO9VRL3o5Bz5iCZwPK",
-            "3ea50",
             "b0P4XgcmhE+4W+q0ZLxNJj",
             "900a1",
             "b81M+S1tdIlrI2+PpSgYtt",

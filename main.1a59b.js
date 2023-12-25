@@ -25,21 +25,7 @@ window.boot = function () {
     }
 
     var onStart = function () {
-        if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_IOS) {
-            function checkSupport(cb) {
-                var webP = new Image();
-                webP.onload = webP.onerror = function () {
-                    let isSupported = (webP.height === 2);
-                    cb(isSupported);
-                };
-                webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
-            }
-    
-            checkSupport(function (result) {
-                cc.sys.capabilities.webp = result;  // overwrite
-            });
-        }
-        
+
         cc.view.enableRetina(true);
         cc.view.resizeWithBrowserSize(true);
 
@@ -137,7 +123,7 @@ window.boot = function () {
 if (window.jsb) {
     var isRuntime = (typeof loadRuntime === 'function');
     if (isRuntime) {
-        require('src/settings.b2d1a.js');
+        require('src/settings.df16c.js');
         require('src/cocos2d-runtime.js');
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require('src/physics.js');
@@ -145,7 +131,7 @@ if (window.jsb) {
         require('jsb-adapter/engine/index.js');
     }
     else {
-        require('src/settings.b2d1a.js');
+        require('src/settings.df16c.js');
         require('src/cocos2d-jsb.js');
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require('src/physics.js');
