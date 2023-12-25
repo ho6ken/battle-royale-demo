@@ -2549,6 +2549,9 @@ window.__require = function e(t, n, r) {
             this._param = param;
             param.enemyAtks = [];
             atkers = Array.from(param.model.enemies);
+            atkers = atkers.filter(function(atk) {
+              return atk.cd <= 0;
+            });
             atkers.forEach(function(atker) {
               return _this.walk(param.model.getTileById(atker.id));
             }, this);
@@ -7927,14 +7930,14 @@ window.__require = function e(t, n, r) {
       };
       SelectHandler.prototype.nextRound = function(model, load) {
         return __awaiter(this, void 0, Promise, function() {
-          var cmd;
-          var _this = this;
+          var cmd, self;
           return __generator(this, function(_a) {
             cmd = new GridCmd_1.GridCmd();
+            self = this;
             GridDefine_1.FOR_COL_ROW(function(pos) {
               var tile = model.getTile(pos);
               if (tile && (tile.group == TileDefine_1.TileGroup.Player || tile.group == TileDefine_1.TileGroup.Enemy)) {
-                var dec = -1 == _this._skip.indexOf(tile.id);
+                var dec = -1 == self._skip.indexOf(tile.id);
                 tile.nextRound(dec);
                 cmd.add(tile, new TileNext_1.TileNext(dec));
               }
