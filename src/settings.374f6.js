@@ -23,6 +23,6 @@ window._CCSettings = {
         prefab: "2d3e3",
         spine: "b1fe9",
         texture: "d0827",
-        main: "de418"
+        main: "aa415"
     }
 };

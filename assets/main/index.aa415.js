@@ -1471,28 +1471,34 @@ window.__require = function e(t, n, r) {
       value: true
     });
     exports.DebugTool = void 0;
+    var GameDefine_1 = require("../define/GameDefine");
     var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
     var DebugTool = function(_super) {
       __extends(DebugTool, _super);
       function DebugTool() {
         var _this = null !== _super && _super.apply(this, arguments) || this;
         _this.pnl = null;
+        _this.ver = null;
         return _this;
       }
       DebugTool.prototype.onLoad = function() {
         this.node.active = true;
         this.pnl.active = false;
+        this.ver.string = GameDefine_1.VER;
       };
       DebugTool.prototype.onClick = function(event, data) {
         this.pnl.active = !this.pnl.active;
       };
       __decorate([ property(cc.Node) ], DebugTool.prototype, "pnl", void 0);
+      __decorate([ property(cc.Label) ], DebugTool.prototype, "ver", void 0);
       DebugTool = __decorate([ ccclass ], DebugTool);
       return DebugTool;
     }(cc.Component);
     exports.DebugTool = DebugTool;
     cc._RF.pop();
-  }, {} ],
+  }, {
+    "../define/GameDefine": "GameDefine"
+  } ],
   DesktopAdapt: [ function(require, module, exports) {
     "use strict";
     cc._RF.push(module, "9141fEPpWlB9oUAF5oD4qNc", "DesktopAdapt");
@@ -3172,7 +3178,8 @@ window.__require = function e(t, n, r) {
     Object.defineProperty(exports, "__esModule", {
       value: true
     });
-    exports.ULT_DAMAGE = exports.MAX_ENERGY = exports.ROLE_TABLE = exports.MAX_STAGE = exports.START_STAGE = exports.STAGE_RULE = exports.PLAYER_START = void 0;
+    exports.ULT_DAMAGE = exports.MAX_ENERGY = exports.ROLE_TABLE = exports.MAX_STAGE = exports.START_STAGE = exports.STAGE_RULE = exports.PLAYER_START = exports.VER = void 0;
+    exports.VER = "2.0.0";
     exports.PLAYER_START = {
       x: 3,
       y: 7
@@ -3602,7 +3609,7 @@ window.__require = function e(t, n, r) {
         hp: 100,
         atk: 10,
         def: 5,
-        cd: 1,
+        cd: 2,
         dex: 2,
         energy: 10
       },
@@ -4546,6 +4553,7 @@ window.__require = function e(t, n, r) {
         return time;
       };
       GridDirector.prototype.next = function(act, tile) {
+        var _this = this;
         var time = .5;
         this._tween.call(function() {
           return tile.node.angle = 0;
@@ -4555,6 +4563,9 @@ window.__require = function e(t, n, r) {
         });
         this._tween.call(function() {
           return tile.nextRound(act.dec);
+        });
+        this._tween.call(function() {
+          return _this._tween = null;
         });
         return time;
       };
@@ -4895,9 +4906,10 @@ window.__require = function e(t, n, r) {
         return this._cache.get(id);
       };
       GridModel.prototype.getRandType = function() {
-        var size = this.enemies.length;
+        var _a, _b;
+        var size = null !== (_b = null === (_a = this.enemies) || void 0 === _a ? void 0 : _a.length) && void 0 !== _b ? _b : 0;
         var data = StageCtrl_1.StageCtrl.inst.data.enemy;
-        return size <= 0 || size >= data.max ? this.getRandNorm() : size <= data.min ? this.getRandEnemy() : RandUtil_1.RandUtil.randRate(10) ? this.getRandEnemy() : this.getRandNorm();
+        return size >= data.max ? this.getRandNorm() : size <= data.min ? this.getRandEnemy() : RandUtil_1.RandUtil.randRate(10) ? this.getRandEnemy() : this.getRandNorm();
       };
       GridModel.prototype.getRandNorm = function() {
         return _super.prototype.getRandType.call(this);
@@ -9452,6 +9464,7 @@ window.__require = function e(t, n, r) {
       function Spine() {
         var _this = null !== _super && _super.apply(this, arguments) || this;
         _this._spine = null;
+        _this.key = "";
         return _this;
       }
       Spine_1 = Spine;
@@ -9497,6 +9510,7 @@ window.__require = function e(t, n, r) {
       Spine.prototype.stop = function() {
         this.spine.clearTrack(Spine_1.TRACK);
         this.spine.setToSetupPose();
+        this.key = "";
         this.resume();
       };
       Spine.prototype.pause = function() {
@@ -9519,6 +9533,7 @@ window.__require = function e(t, n, r) {
             this.stop();
             entry = this.spine.setAnimation(Spine_1.TRACK, key, false);
             this.listen(entry, event);
+            this.key = key;
             return [ 2, new Promise(function(resolve) {
               return __awaiter(_this, void 0, void 0, function() {
                 return __generator(this, function(_a) {
@@ -9540,6 +9555,7 @@ window.__require = function e(t, n, r) {
       Spine.prototype.playLoop = function(key, event) {
         void 0 === key && (key = this.spine.defaultAnimation);
         this.stop();
+        this.key = key;
         this.listen(this.spine.setAnimation(Spine_1.TRACK, key, true), event);
       };
       Spine.prototype.playSteps = function(keys, event) {
@@ -9897,7 +9913,8 @@ window.__require = function e(t, n, r) {
         var values = Object.values(data);
         this.rules.clear();
         keys.forEach(function(elm, idx) {
-          return _this.rules.set(+elm, +values[idx]);
+          var value = +values[idx];
+          value > 0 && _this.rules.set(+elm, value);
         }, this);
       };
       StageModel.prototype.directWin = function() {
@@ -12020,7 +12037,7 @@ window.__require = function e(t, n, r) {
         switch (this.group) {
          case TileDefine_1.TileGroup.Norm:
           spineDyn(true);
-          if (selected) this.spine.playLoop("Idle"); else {
+          if (selected) this.spine.playLoop("Idle"); else if ("Idle" == this.spine.key) {
             this.spine.stop();
             spineDyn(false);
           }
@@ -12030,7 +12047,7 @@ window.__require = function e(t, n, r) {
           spineDyn(true);
           if (selected) this.spine.playOnce("WinFreeGame").then(function() {
             _this.spine.playLoop("AnticipationLoop");
-          }); else {
+          }); else if ("WinFreeGame" == this.spine.key || "AnticipationLoop" == this.spine.key) {
             this.spine.stop();
             spineDyn(false);
           }
@@ -12097,31 +12114,21 @@ window.__require = function e(t, n, r) {
         });
       };
       TileView.prototype.crushed = function() {
-        return __awaiter(this, void 0, Promise, function() {
-          var self, spineDyn;
-          return __generator(this, function(_a) {
-            switch (_a.label) {
-             case 0:
-              self = this;
-              spineDyn = function(dyn) {
-                self.avatar.node.active = !dyn;
-                self.spine.node.active = dyn;
-              };
-              if (!(this.group == TileDefine_1.TileGroup.Norm)) return [ 3, 2 ];
-              spineDyn(true);
-              return [ 4, this.spine.playOnce("Win") ];
-
-             case 1:
-              _a.sent();
-              this.spine.stop();
+        var _this = this;
+        var self = this;
+        var spineDyn = function(dyn) {
+          self.avatar.node.active = !dyn;
+          self.spine.node.active = dyn;
+        };
+        if (this.group == TileDefine_1.TileGroup.Norm) {
+          spineDyn(true);
+          this.spine.playOnce("Win").then(function() {
+            if ("Win" == _this.spine.key) {
+              self.spine.stop();
               spineDyn(false);
-              _a.label = 2;
-
-             case 2:
-              return [ 2 ];
             }
           });
-        });
+        }
       };
       TileView.prototype.doCooldown = function() {
         this.cd = this._model.cooldown();
